@@ -36,46 +36,68 @@ namespace SikayetTakipSitesi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Countries",
+                columns: table => new
+                {
+                    CountryId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CountryName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Countries", x => x.CountryId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CategoryBrands",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
+                    BrandId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CategoryBrands", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_CategoryBrands_Brands_BrandId",
+                        column: x => x.BrandId,
+                        principalTable: "Brands",
+                        principalColumn: "PK_BRAND_ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_CategoryBrands_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "PK_CATEGORY_ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Members",
                 columns: table => new
                 {
                     PK_MEMBER_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MemberName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MemberLastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MemberMail = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MemberPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MemberPhoto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MemberName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MemberLastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MemberMail = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MemberPassword = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MemberPhoto = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MemberStatus = table.Column<bool>(type: "bit", nullable: false),
+                    CountryId = table.Column<int>(type: "int", nullable: true),
                     Role = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Members", x => x.PK_MEMBER_ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "BrandCategory",
-                columns: table => new
-                {
-                    BrandsPK_BRAND_ID = table.Column<int>(type: "int", nullable: false),
-                    CategoriesPK_CATEGORY_ID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BrandCategory", x => new { x.BrandsPK_BRAND_ID, x.CategoriesPK_CATEGORY_ID });
                     table.ForeignKey(
-                        name: "FK_BrandCategory_Brands_BrandsPK_BRAND_ID",
-                        column: x => x.BrandsPK_BRAND_ID,
-                        principalTable: "Brands",
-                        principalColumn: "PK_BRAND_ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_BrandCategory_Categories_CategoriesPK_CATEGORY_ID",
-                        column: x => x.CategoriesPK_CATEGORY_ID,
-                        principalTable: "Categories",
-                        principalColumn: "PK_CATEGORY_ID",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Members_Countries_CountryId",
+                        column: x => x.CountryId,
+                        principalTable: "Countries",
+                        principalColumn: "CountryId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -85,24 +107,24 @@ namespace SikayetTakipSitesi.Migrations
                     PK_COMPLAINT_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ComplaintContent = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BrandId = table.Column<int>(type: "int", nullable: true),
+                    MemberId = table.Column<int>(type: "int", nullable: true),
                     ComplaintStatus = table.Column<bool>(type: "bit", nullable: false),
                     ComplaintTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ComplaintSwitchActive = table.Column<bool>(type: "bit", nullable: false),
-                    FK_MEMBER_IDPK_MEMBER_ID = table.Column<int>(type: "int", nullable: true),
-                    FK_BRAND_IDPK_BRAND_ID = table.Column<int>(type: "int", nullable: true)
+                    ComplaintSwitchActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Complaints", x => x.PK_COMPLAINT_ID);
                     table.ForeignKey(
-                        name: "FK_Complaints_Brands_FK_BRAND_IDPK_BRAND_ID",
-                        column: x => x.FK_BRAND_IDPK_BRAND_ID,
+                        name: "FK_Complaints_Brands_BrandId",
+                        column: x => x.BrandId,
                         principalTable: "Brands",
                         principalColumn: "PK_BRAND_ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Complaints_Members_FK_MEMBER_IDPK_MEMBER_ID",
-                        column: x => x.FK_MEMBER_IDPK_MEMBER_ID,
+                        name: "FK_Complaints_Members_MemberId",
+                        column: x => x.MemberId,
                         principalTable: "Members",
                         principalColumn: "PK_MEMBER_ID",
                         onDelete: ReferentialAction.Restrict);
@@ -115,58 +137,68 @@ namespace SikayetTakipSitesi.Migrations
                     PK_COMMENT_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CommentContent = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MemberId = table.Column<int>(type: "int", nullable: true),
+                    ComplaintId = table.Column<int>(type: "int", nullable: true),
                     CommentStatus = table.Column<bool>(type: "bit", nullable: false),
-                    CommentSwitchActive = table.Column<bool>(type: "bit", nullable: false),
-                    FK_COMPLAINT_IDPK_COMPLAINT_ID = table.Column<int>(type: "int", nullable: true),
-                    MemberPK_MEMBER_ID = table.Column<int>(type: "int", nullable: true)
+                    CommentSwitchActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Comments", x => x.PK_COMMENT_ID);
                     table.ForeignKey(
-                        name: "FK_Comments_Complaints_FK_COMPLAINT_IDPK_COMPLAINT_ID",
-                        column: x => x.FK_COMPLAINT_IDPK_COMPLAINT_ID,
+                        name: "FK_Comments_Complaints_ComplaintId",
+                        column: x => x.ComplaintId,
                         principalTable: "Complaints",
                         principalColumn: "PK_COMPLAINT_ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Comments_Members_MemberPK_MEMBER_ID",
-                        column: x => x.MemberPK_MEMBER_ID,
+                        name: "FK_Comments_Members_MemberId",
+                        column: x => x.MemberId,
                         principalTable: "Members",
                         principalColumn: "PK_MEMBER_ID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BrandCategory_CategoriesPK_CATEGORY_ID",
-                table: "BrandCategory",
-                column: "CategoriesPK_CATEGORY_ID");
+                name: "IX_CategoryBrands_BrandId",
+                table: "CategoryBrands",
+                column: "BrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_FK_COMPLAINT_IDPK_COMPLAINT_ID",
+                name: "IX_CategoryBrands_CategoryId",
+                table: "CategoryBrands",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Comments_ComplaintId",
                 table: "Comments",
-                column: "FK_COMPLAINT_IDPK_COMPLAINT_ID");
+                column: "ComplaintId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_MemberPK_MEMBER_ID",
+                name: "IX_Comments_MemberId",
                 table: "Comments",
-                column: "MemberPK_MEMBER_ID");
+                column: "MemberId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Complaints_FK_BRAND_IDPK_BRAND_ID",
+                name: "IX_Complaints_BrandId",
                 table: "Complaints",
-                column: "FK_BRAND_IDPK_BRAND_ID");
+                column: "BrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Complaints_FK_MEMBER_IDPK_MEMBER_ID",
+                name: "IX_Complaints_MemberId",
                 table: "Complaints",
-                column: "FK_MEMBER_IDPK_MEMBER_ID");
+                column: "MemberId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Members_CountryId",
+                table: "Members",
+                column: "CountryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BrandCategory");
+                name: "CategoryBrands");
 
             migrationBuilder.DropTable(
                 name: "Comments");
@@ -182,6 +214,9 @@ namespace SikayetTakipSitesi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Members");
+
+            migrationBuilder.DropTable(
+                name: "Countries");
         }
     }
 }

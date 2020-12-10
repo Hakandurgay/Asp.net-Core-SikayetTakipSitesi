@@ -12,24 +12,26 @@ namespace SikayetTakipSitesi.Models
         [Key]
         
         public int PK_MEMBER_ID { get; set; }
-        [Required]
-        public string MemberName { get; set; }
-        [Required]
-        public string MemberLastName { get; set; }
-        [Required]
-        public string MemberMail { get; set; }
-        [Required]
-        public string MemberPassword { get; set; }
-        [Required]
-        public string MemberPhoto { get; set; }
-        [Required]
-        public bool MemberStatus { get; set; }
 
+        public string MemberName { get; set; }
+
+        public string MemberLastName { get; set; }
+
+        public string MemberMail { get; set; }
+
+        public string MemberPassword { get; set; }
+
+        public string MemberPhoto { get; set; }
+
+        public bool MemberStatus { get; set; }
+        public int? CountryId { get; set; }
+        public Country FK_Country { get; set; }
         public Role Role { get; set; }
 
-        public ICollection<Complaint> Complaints { get; set; }
+     //   public ICollection<Complaint> Complaints { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+     //   public ICollection<Comment> Comments { get; set; }
+
 
     }
 }

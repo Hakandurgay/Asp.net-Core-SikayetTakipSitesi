@@ -11,12 +11,14 @@ namespace SikayetTakipSitesi.Models
         [Key]
         public int PK_COMPLAINT_ID { get; set; }
         public string ComplaintContent { get; set; }
+        public int? BrandId  { get; set; }
+        public int? MemberId  { get; set; }
         public bool ComplaintStatus { get; set; }
         public string ComplaintTitle { get; set; }
         public bool ComplaintSwitchActive { get; set; }
         public Member FK_MEMBER_ID { get; set; }
         public Brand FK_BRAND_ID { get; set; }
-        public ICollection<Comment> Comments { get; set; }
+    //    public ICollection<Comment> Comments { get; set; }
 
     }
 }

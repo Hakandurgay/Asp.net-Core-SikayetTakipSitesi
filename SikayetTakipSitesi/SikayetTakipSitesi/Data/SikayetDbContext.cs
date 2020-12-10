@@ -19,5 +19,8 @@ namespace SikayetTakipSitesi.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Complaint> Complaints { get; set; }
         public DbSet<Member> Members { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<CategoryBrand> CategoryBrands { get; set; }
+
     }
 }

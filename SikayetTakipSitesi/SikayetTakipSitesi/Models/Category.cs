@@ -14,6 +14,6 @@ namespace SikayetTakipSitesi.Models
 
         public bool CategoryStatus { get; set; }
 
-        public ICollection<Brand> Brands { get; set; }
+       // public ICollection<Brand> Brands { get; set; }
     }
 }
