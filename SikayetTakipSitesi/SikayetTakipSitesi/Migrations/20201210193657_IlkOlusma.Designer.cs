@@ -10,8 +10,8 @@ using SikayetTakipSitesi.Data;
 namespace SikayetTakipSitesi.Migrations
 {
     [DbContext(typeof(SikayetDbContext))]
-    [Migration("20201210180320_ilkOlusturma")]
-    partial class ilkOlusturma
+    [Migration("20201210193657_IlkOlusma")]
+    partial class IlkOlusma
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
