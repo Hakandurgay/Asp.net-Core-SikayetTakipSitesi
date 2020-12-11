@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Accounting - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Şikayet Et!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -73,7 +73,7 @@
         </div>
     </nav>
     <!-- END nav -->
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('~/wwwroot/accounting-master/images/bg_2.jpg') data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
@@ -89,18 +89,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
-                    @*<div class="cases-wrap d-md-flex align-items-center">
-                        <div class="img" style="background-image: url(images/image_1.jpg);"></div>
-                        <div class="text pl-md-5">
-                            <span class="cat">Strategy</span>
-                            <h2>Business activities and care for the environment</h2>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                            <p><a href="#" class="btn btn-primary">Şikayet Yaz</a></p>
-                        </div>
-                    </div>*@
-
-                   
-
 
                     @RenderBody()
 
@@ -130,71 +118,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="sidebar-box ftco-animate">
-                        <div class="categories">
-                            <h3>Kategoriler</h3>
-                            <li><a href="#">Career &amp; Business <span class="ion-ios-arrow-forward"></span></a></li>
-                            <li><a href="#">Mental &amp; Physical Care <span class="ion-ios-arrow-forward"></span></a></li>
-                            <li><a href="#">People &amp; Relationships <span class="ion-ios-arrow-forward"></span></a></li>
-                            <li><a href="#">Life Coaching <span class="ion-ios-arrow-forward"></span></a></li>
-                        </div>
-                    </div>
-
-                    <div class="sidebar-box ftco-animate">
-                        <h3>Recent Blog</h3>
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span> Jan. 30, 2020</a></div>
-                                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span> Jan. 30, 2020</a></div>
-                                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span> Jan. 30, 2020</a></div>
-                                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sidebar-box ftco-animate">
-                        <h3>Tag Cloud</h3>
-                        <div class="tagcloud">
-                            <a href="#" class="tag-cloud-link">home</a>
-                            <a href="#" class="tag-cloud-link">builder</a>
-                            <a href="#" class="tag-cloud-link">build</a>
-                            <a href="#" class="tag-cloud-link">create</a>
-                            <a href="#" class="tag-cloud-link">make</a>
-                            <a href="#" class="tag-cloud-link">construction</a>
-                            <a href="#" class="tag-cloud-link">house</a>
-                            <a href="#" class="tag-cloud-link">architect</a>
-                        </div>
-                    </div>
-
-                    <div class="sidebar-box ftco-animate">
-                        <h3>Paragraph</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-                    </div>
+                    @RenderSection("Kategoriler");
                 </div>
 
             </div>

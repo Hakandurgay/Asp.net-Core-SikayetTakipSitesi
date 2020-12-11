@@ -2,7 +2,7 @@
 
 namespace SikayetTakipSitesi.Migrations
 {
-    public partial class IlkOlusma : Migration
+    public partial class ilkOlusturma : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

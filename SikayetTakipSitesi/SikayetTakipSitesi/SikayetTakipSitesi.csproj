@@ -165,6 +165,9 @@
     <None Include="wwwroot\accounting-master\scss\bootstrap\_variables.scss" />
     <None Include="wwwroot\accounting-master\scss\style.scss" />
     <None Include="wwwroot\accounting-master\services.html" />
+    <None Include="wwwroot\brand_logo\BurgerKing.png" />
+    <None Include="wwwroot\brand_logo\koc_sistem_logo.png" />
+    <None Include="wwwroot\brand_logo\madam_coco_logo.jpg" />
   </ItemGroup>
 
   <ItemGroup>
