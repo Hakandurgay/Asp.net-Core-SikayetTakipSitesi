@@ -1,5 +1,4 @@
-﻿@model IEnumerable<SikayetTakipSitesi.Models.CategoryBrand>
-
+﻿@model SikayetTakipSitesi.ViewModels.CategoryBrandModelView
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,36 +8,41 @@
 
 <h1>MARKALAR</h1>
 
-@foreach (var item in Model)
+@foreach (var brand in Model.Brand )
 {
-    <tr>
-        <td>
-            <div class="cases-wrap d-md-flex align-items-center">
-                <div class="img" style="        background-image: url(@Html.DisplayFor(modelItem=>item.Brand.BrandPhoto));"></div>
-                <div class="text pl-md-5">
-                    <span class="cat">  @Html.DisplayFor(modelItem => item.Brand.BrandName)</span>
-                    <p>
-                        <a href="#" class="btn btn-primary">Şikayet Et</a>
-                        <a href="#" class="btn btn-primary">Detaylar</a>
-                    </p>
-                </div>
-            </div>
-        </td>
-    </tr>
+    <div class="cases-wrap d-md-flex align-items-center">
+        <div class="img" style="background-image:url(@brand.Brand.BrandPhoto )"></div>
+
+        <div class="text pl-md-5">
+            <a href="~/accounting-master/contact.html"> <span class="cat">@brand.Brand.BrandName</span></a>
+
+            <p><a href="#" class="btn btn-primary">Şikayet Yaz</a></p>
+
+            <p><a href="#" class="btn btn-primary">Markaya Git</a></p>
+        </div>
+    </div>
+
 }
 
-@section Kategoriler{ 
-<h3>Kategoriler</h3>
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            <div class="sidebar-box ftco-animate">
-                <div class="categories">
-                    <li><a href="#">@Html.DisplayFor(modelItem => item.Category.CategoryName)</a></li>
-                </div>
-            </div>
-        </td>
-    </tr>
+
+
+@section Kategoriler{
+
+    <div class="sidebar-box ftco-animate">
+        <div class="categories">
+            <h3>Kategoriler</h3>
+            @foreach (var category in Model.Category )
+            {
+
+                <form method="post" asp-action="Index" asp-controller="CategoryBrand" asp-route-id="@category.Category.PK_CATEGORY_ID ">
+                    <li><button type="submit" class="btn btn-primary"> <span class="ion-ios-arrow-forward"></span>@category.Category.CategoryName</button></li>
+                </form>
+
+            }
+
+        </div>
+    </div>
+
 }
-   }
+
+
