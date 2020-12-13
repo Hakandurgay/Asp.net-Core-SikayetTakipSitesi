@@ -1,4 +1,4 @@
-﻿@model SikayetTakipSitesi.ViewModels.CategoryBrandModelView
+﻿@model   IEnumerable<Brand>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,13 +8,13 @@
 
 <h1>MARKALAR</h1>
 
-@foreach (var brand in Model.Brand )
+@foreach (var brand in Model)
 {
     <div class="cases-wrap d-md-flex align-items-center">
-        <div class="img" style="background-image:url(@brand.Brand.BrandPhoto )"></div>
+        <div class="img" style="background-image:url(@brand.BrandPhoto )"></div>
 
         <div class="text pl-md-5">
-            <a href="~/accounting-master/contact.html"> <span class="cat">@brand.Brand.BrandName</span></a>
+            <a href="~/accounting-master/contact.html"> <span class="cat">@brand.BrandName</span></a>
 
             <p><a href="#" class="btn btn-primary">Şikayet Yaz</a></p>
 
@@ -25,24 +25,8 @@
 }
 
 
-
 @section Kategoriler{
 
-    <div class="sidebar-box ftco-animate">
-        <div class="categories">
-            <h3>Kategoriler</h3>
-            @foreach (var category in Model.Category )
-            {
-
-                <form method="post" asp-action="Index" asp-controller="CategoryBrand" asp-route-id="@category.Category.PK_CATEGORY_ID ">
-                    <li><button type="submit" class="btn btn-primary"> <span class="ion-ios-arrow-forward"></span>@category.Category.CategoryName</button></li>
-                </form>
-
-            }
-
-        </div>
-    </div>
+    @await Component.InvokeAsync("CategoryMenu")
 
 }
-
-

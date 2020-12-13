@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Category>
+<div class="sidebar-box ftco-animate">
+    <div class="categories">
+        <h3>Kategoriler</h3>
+        @foreach (var category in Model)
+        {
+
+    <form method="post" asp-action="Index" asp-controller="CategoryBrand" asp-route-id="@category.PK_CATEGORY_ID ">
+        <li><button type="submit" class="btn btn-primary"> <span class="ion-ios-arrow-forward">@category.CategoryName</span></button></li>
+    </form>            }
+
+    </div>
+</div>
