@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Complaint>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@await Component.InvokeAsync("BrandDetail")
