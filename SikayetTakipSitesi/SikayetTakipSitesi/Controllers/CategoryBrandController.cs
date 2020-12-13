@@ -22,7 +22,6 @@ namespace SikayetTakipSitesi.Controllers
         }
 
 
-        CategoryBrandModelView categoryBrandViewModel = new CategoryBrandModelView();
 
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -47,6 +46,12 @@ namespace SikayetTakipSitesi.Controllers
             }
             return View(brands);
         }
+        //public ActionResult GetBrand(int id)
+        //{
 
+        //    Brand brand = _context.Brands.Find(id);
+
+        //    return RedirectToAction("Index", "Complaint", brand);
+        //}
     }
 }

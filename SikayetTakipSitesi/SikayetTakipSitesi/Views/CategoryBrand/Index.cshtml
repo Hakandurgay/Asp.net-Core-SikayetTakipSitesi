@@ -1,4 +1,4 @@
-﻿@model   IEnumerable<Brand>
+﻿@model IEnumerable<Brand>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,21 +8,27 @@
 
 <h1>MARKALAR</h1>
 
+
 @foreach (var brand in Model)
 {
     <div class="cases-wrap d-md-flex align-items-center">
-        <div class="img" style="background-image:url(@brand.BrandPhoto )"></div>
+        <div class="img" style="background-image:url(@brand.BrandPhoto ); background-size: 300px;"></div>
 
         <div class="text pl-md-5">
-            <a href="~/accounting-master/contact.html"> <span class="cat">@brand.BrandName</span></a>
+            <a> <span class="cat">@brand.BrandName</span></a>
 
-            <p><a href="#" class="btn btn-primary">Şikayet Yaz</a>
-               <a href="#" class="btn btn-primary">Markaya Git</a>
+            <p>
+                <form method="post" asp-action="Index" asp-controller="Complaint" asp-route-id="@brand.PK_BRAND_ID ">
+                    <button type="submit" class="btn btn-primary">Şikayet Yaz </button>
+                </form>
+                <br />
+                <a href="Brands/Index" class="btn btn-primary">Markaya Git</a>
             </p>
         </div>
     </div>
-
+    
 }
+
 
 
 @section Kategoriler{

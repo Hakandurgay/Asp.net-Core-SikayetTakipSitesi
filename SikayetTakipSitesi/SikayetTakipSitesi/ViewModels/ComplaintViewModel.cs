@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SikayetTakipSitesi.ViewModels
 {
-    public class CategoryBrandModelView
+    public class ComplaintViewModel
     {
-        public List<CategoryBrand> Category { get; set; }
-        public List<CategoryBrand> Brand { get; set; }
+        public Brand Brand { get; set; }
+        public Complaint Complaint { get; set; }
     }
 }

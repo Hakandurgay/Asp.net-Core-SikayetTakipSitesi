@@ -1,0 +1,69 @@
+﻿@model SikayetTakipSitesi.ViewModels.ComplaintViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="contact-wrap w-100 p-md-5 p-4" style="background-color:darkseagreen">
+    <h3 class="mb-4"></h3>
+
+    <form asp-action="CreateComplaint">
+        <div class="row" style="background-color:darkseagreen">
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    @if (ViewBag.kontrol == "get")
+                    {
+                        <div class="form-group">
+                            <label for="RF_ROLE_ID_I">Markalar:</label><br />
+                            @Html.DropDownListFor(model => model.Complaint.BrandId, new SelectList(ViewBag.markaAd, "PK_BRAND_ID", "BrandName"), new { @id = "RF_ROLE_ID_I" })
+                        </div>
+                    }
+                    else
+                    {
+                        //     @Html.LabelFor(x => x.Brand.PK_BRAND_ID) //içine yazılan değerden textbox var ise, labela tıklandığında otomatik olarak textbpxa yazılmasını sağlar
+                        //   @Html.TextBoxFor(x => x.Complaint.BrandId, new { @class = "form-control" }) //lamda içine yazılan değerin nereye gideceğini belirtiyor
+
+                        @Html.Label("Şikatet Oluşturacağınız Marka")
+                        <input value="@ViewBag.markaAd" class="form-control" readonly="readonly" />
+
+                        <input asp-for="Complaint.BrandId" value="@ViewBag.markaId" class="form-control" type="hidden" />
+
+                    }
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Şikayet Başlığı</label>
+                    <input asp-for="Complaint.ComplaintTitle" class="form-control" />
+                    <span asp-validation-for="Complaint.ComplaintTitle" class="text-danger"></span>
+                    @*@Html.DropDownListFor(model => model. , new SelectList(ViewBag.roleAd, "SQ_ROLE_ID", "CH_ROLE_NAME"), new { @id = "RF_ROLE_ID_I" })*@
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Complaint.ComplaintContent" class="control-label">Şikayetiniz: </label>
+                    <input asp-for="Complaint.ComplaintContent" class="form-control" />
+                    <span asp-validation-for="Complaint.ComplaintContent" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="submit" value="Gonder" class="btn btn-primary" />
+                    <div class="submitting"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@section Kategoriler{
+
+}
