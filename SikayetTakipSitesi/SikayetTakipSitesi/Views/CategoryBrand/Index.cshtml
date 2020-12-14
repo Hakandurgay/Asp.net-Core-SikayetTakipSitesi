@@ -22,7 +22,9 @@
                     <button type="submit" class="btn btn-primary">Şikayet Yaz </button>
                 </form>
                 <br />
-                <a href="Brands/Index" class="btn btn-primary">Markaya Git</a>
+                <form method="post" asp-action="Index" asp-controller="BrandDetail" asp-route-id="@brand.PK_BRAND_ID ">
+                    <button type="submit" class="btn btn-primary">Markaya Git</button>
+                    </form>
             </p>
         </div>
     </div>

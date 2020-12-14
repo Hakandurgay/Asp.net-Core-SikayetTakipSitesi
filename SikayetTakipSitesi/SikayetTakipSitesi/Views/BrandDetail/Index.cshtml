@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Complaint>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@foreach (var complaint in Model)
+{
+    <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry align-self-stretch">
+            <div class="text p-4">
+                <form method="post" asp-controller="BrandDetail">
+                    <div class="meta mb-2">
+                        <div>@ViewBag.brandName</div> <br />
+                        <div><a href="#">@complaint.ComplaintTitle</a></div>
+                        <h3 class="heading"><a href="#">@complaint.ComplaintContent</a></h3>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
