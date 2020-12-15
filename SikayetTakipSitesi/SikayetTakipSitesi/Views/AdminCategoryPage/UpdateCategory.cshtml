@@ -1,0 +1,20 @@
+﻿@model SikayetTakipSitesi.Models.Category
+@{
+    ViewData["Title"] = "GetCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateCategory", "Admin", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.CategoryName)
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.PK_CATEGORY_ID)
+    </div>
+    <button class="btn btn-warning">Güncelle</button>
+}
+
+@section Markalar{
+
+
+}

@@ -31,8 +31,8 @@ namespace SikayetTakipSitesi.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(int id)
         {
-            brandDetailModelView.Brand = _context.Brands.Find(id);
-            ViewBag.brandName = brandDetailModelView.Brand.BrandName;
+            Brand brand = _context.Brands.Find(id);
+            ViewBag.brandName = brand.BrandName;
           //  ViewBag.memberName = brandDetailModelView.Member.MemberName;  -->bunun eklenmesi lazım buraya member controlleri oluşturunca bak.
             List<Complaint> complaints = await _context.Complaints.Include(x => x.FK_BRAND_ID).Where(y => y.FK_BRAND_ID.BrandStatus == true && y.ComplaintStatus == true && y.FK_BRAND_ID.PK_BRAND_ID == id).ToListAsync();
             return View(complaints);

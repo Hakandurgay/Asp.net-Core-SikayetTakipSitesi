@@ -1,0 +1,28 @@
+﻿@model SikayetTakipSitesi.Models.Brand
+
+@{
+    ViewData["Title"] = "UpdateBrand";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>UpdateBrand</h1>
+
+
+@using (Html.BeginForm("UpdateBrand", "AdminBrandPage", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.BrandName)
+        @Html.TextBoxFor(x => x.BrandName, new { @class = "form-control" })
+        @Html.LabelFor(x => x.BrandPhoto)
+        @Html.TextBoxFor(x => x.BrandPhoto, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.PK_BRAND_ID)
+    </div>
+    <button class="btn btn-warning">Güncelle</button>
+}
+
+
+@section Markalar{
+
+
+
+}

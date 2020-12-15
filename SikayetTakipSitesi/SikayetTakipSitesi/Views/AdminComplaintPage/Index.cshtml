@@ -1,0 +1,62 @@
+﻿@model SikayetTakipSitesi.ViewModels.AdminComplaintViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+
+
+@foreach (var complaint in Model.Complaints)
+{
+    <div class="cases-wrap d-md-flex align-items-center">
+
+        <div class="text pl-md-5">
+            <p>Şikayetin Yazıldığı Marka:</p>
+            <a> <span class="cat">@complaint.FK_BRAND_ID.BrandName </span></a>
+
+            <p>Şikayeti Yazan Kullanıcı Adı:</p>
+            <a> <span class="cat">@complaint.FK_MEMBER_ID.MemberName @complaint.FK_MEMBER_ID.MemberLastName </span></a>
+
+
+            <p>Şikayet Başlığı:</p>
+            <a> <span class="cat">@complaint.ComplaintTitle  </span></a>
+
+            <p>Şikayet İçeriği:</p>
+            <a> <span class="cat">@complaint.ComplaintContent</span></a>
+
+            <p>
+                <a href="/AdminComplaintPage/ConfirmComplaint/@complaint.PK_COMPLAINT_ID" class="btn btn-primary">Onayla</a>
+
+                <a href="/AdminComplaintPage/RejectComplaint/@complaint.PK_COMPLAINT_ID" class="btn btn-danger">Sil</a>
+
+            </p>
+        </div>
+    </div>
+
+}
+
+
+
+@section Markalar{
+
+    @*@await Component.InvokeAsync("BrandList")*@
+
+    <div class="sidebar-box ftco-animate">
+        <div class="categories">
+            Markalar
+            <form method="get" asp-action="Index" asp-controller="AdminComplaintPage">
+                <li style="margin-bottom: 10px; border-bottom:solid; border-width:1px;"><button type="submit" class="btn btn-primary2 font-weight-light"> <span class="ion-ios-arrow-forward">TÜMÜ</span></button></li>
+            </form>
+            @foreach (var brand in Model.Brands)
+            {
+                <form method="post" asp-action="Index" asp-controller="AdminComplaintPage" asp-route-id="@brand.PK_BRAND_ID ">
+                    <li><button type="submit" class="btn btn-primary2 font-weight-light "> <span class="ion-ios-arrow-forward">@brand.BrandName</span></button></li>
+                </form>}
+
+        </div>
+    </div>
+
+
+}

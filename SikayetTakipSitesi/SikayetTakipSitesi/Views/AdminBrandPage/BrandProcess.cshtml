@@ -1,0 +1,34 @@
+﻿@model List<Brand>
+@{
+    ViewData["Title"] = "BrandProcess";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>BrandProcess</h1>
+@foreach (var brand in Model)
+{
+    <table>
+        <div class="cases-wrap d-md-flex align-items-center">
+            <div class="img" style="background-image:url(@brand.BrandPhoto ); background-size: 300px;"></div>
+
+            <div class="text pl-md-5">
+                <a> <span class="cat">@brand.BrandName</span></a>
+
+                <p>
+                    <a href="/AdminBrandPage/GetBrand/@brand.PK_BRAND_ID" class="btn btn-warning">Güncelle</a>
+                    <br />
+                    <br />
+                    <a href="/AdminBrandPage/DeleteBrand/@brand.PK_BRAND_ID" class="btn btn-danger">Sil</a>
+
+                </p>
+            </div>
+        </div>
+    </table>
+}
+<form method="get" asp-action="AddBrand" asp-controller="AdminBrandPage">
+    <button type="submit" class="btn btn-primary">Marka Ekle</button>
+</form>
+
+@section Markalar{
+
+}

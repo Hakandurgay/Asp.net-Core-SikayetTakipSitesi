@@ -1,0 +1,26 @@
+﻿
+@model SikayetTakipSitesi.Models.Brand
+@{
+    ViewData["Title"] = "AddBrand";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>AddBrand</h1>
+
+
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.BrandName)
+    @Html.TextBoxFor(x => x.BrandName, new { @class = "form-control" })
+    @Html.LabelFor(x => x.BrandPhoto)
+    @Html.TextBoxFor(x => x.BrandPhoto, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
+
+
+@section Markalar{
+
+
+
+}

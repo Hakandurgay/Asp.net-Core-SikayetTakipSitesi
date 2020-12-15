@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Şikayet Et!</title>
@@ -63,11 +68,12 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item"><a href="index.html" class="nav-link">Ana Sayfa</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">Şikayetler</a></li>
+                    <li class="nav-item"><a href="/AdminCategoryPage/CategoryProcess/" class="nav-link">Kategori İşlemleri</a></li>
+                    <li class="nav-item"><a href="/AdminComplaintPage/Index/" class="nav-link">Şikayet Onayla</a></li>
                     <!--  <li class="nav-item"><a href="services.html" class="nav-link">Markalar</a></li> -->
-                    <li class="nav-item active"><a href="/CategoryBrand/Index/" class="nav-link">Markalar</a></li>
+                    <li class="nav-item active"><a href="/AdminBrandPage/BrandProcess/" class="nav-link">Marka Ekle</a></li>
                     <!--     <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
-                    <li class="nav-item"><a href="/Complaint/Index/" class="nav-link">Şikayet Et</a></li>
+                    <li class="nav-item"><a href="/AdminCommentPage/ComfirmCommet/" class="nav-link">Yorum Onayla</a></li>
                 </ul>
             </div>
         </div>
@@ -112,7 +118,7 @@
                 <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
                     <div class="sidebar-box">
                     </div>
-                    @RenderSection("Kategoriler")
+                    @RenderSection("Markalar")
                 </div>
 
             </div>

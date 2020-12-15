@@ -1,0 +1,46 @@
+﻿@model List<Comment>
+@{
+    ViewData["Title"] = "ComfirmCommet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>ComfirmCommet</h1>
+
+
+
+
+@foreach (var comment in Model)
+{
+    <div class="cases-wrap d-md-flex align-items-center">
+
+        <div class="text pl-md-5">
+            <p>Yorumun Yazıldığı Marka:</p>
+            <a> <span class="cat">@comment.Complaint.FK_BRAND_ID.BrandName </span></a>
+
+            <p>Yorumu Yazan Kullanıcı Adı:</p>
+            <a> <span class="cat">@comment.Member.MemberName @comment.Member.MemberLastName </span></a>
+
+
+            <p>Yorumun Yazıldığı Şikayet Başlığı:</p>
+            <a> <span class="cat">@comment.Complaint.ComplaintTitle  </span></a>
+
+            <p>Yorumun İçeriği:</p>
+            <a> <span class="cat">@comment.CommentContent </span></a>
+
+            <p>
+                <a href="/AdminCommentPage/ComfirmComment_ConfirmButton/@comment.PK_COMMENT_ID" class="btn btn-Primary">Onayla</a>
+
+                <a href="/AdminCommentPage/ComfirmComment_RejectButton/@comment.PK_COMMENT_ID" class="btn btn-Danger">Sil</a>
+
+            </p>
+        </div>
+    </div>
+
+}
+
+
+@section Markalar{
+
+    @await Component.InvokeAsync("BrandList")
+
+}

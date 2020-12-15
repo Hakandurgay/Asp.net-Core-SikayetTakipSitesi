@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Brand>
+<div class="sidebar-box ftco-animate">
+    <div class="categories">
+      Markalar
+        <form method="get" asp-action="Index" asp-controller="CategoryBrand">
+            <li style="margin-bottom: 10px; border-bottom:solid; border-width:1px;"><button type="submit" class="btn btn-primary2 font-weight-light"> <span class="ion-ios-arrow-forward">TÜMÜ</span></button></li>
+        </form>
+        @foreach (var brand in Model)
+        {
+            <form method="post" asp-action="ComfirmCommet" asp-controller="AdminCommentPage" asp-route-id="@brand.PK_BRAND_ID ">
+                <li><button type="submit" class="btn btn-primary2 font-weight-light "> <span class="ion-ios-arrow-forward">@brand.BrandName</span></button></li>
+            </form>}
+
+    </div>
+</div>

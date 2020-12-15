@@ -19,6 +19,8 @@ namespace SikayetTakipSitesi.Controllers
             _context = context;
         }
         ComplaintViewModel brand_ViewModel = new ComplaintViewModel();
+
+
         [HttpGet]
         public IActionResult Index()
         {
