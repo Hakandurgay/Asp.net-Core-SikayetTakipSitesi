@@ -9,7 +9,7 @@
 
 
 
-<form class="form-group" method="post">
+<form class="form-group" method="post">  @*ekleme işlemi sayfa adıyla aynıysa böyle post edileilibr*@
     @Html.LabelFor(x => x.BrandName)
     @Html.TextBoxFor(x => x.BrandName, new { @class = "form-control" })
     @Html.LabelFor(x => x.BrandPhoto)
@@ -17,7 +17,6 @@
     <br />
     <button class="btn btn-info">Kaydet</button>
 </form>
-
 
 @section Markalar{
 

@@ -33,8 +33,8 @@ namespace SikayetTakipSitesi.Controllers.AdminControllers
                                                            Include(y => y.Complaint).
                                                            Include(y => y.Complaint.FK_BRAND_ID).
                                                            Where(b => b.CommentStatus == true && b.CommentSwitchActive == false).ToList(); //onaylanammış yorumlar gösteriliyor
-
-
+     
+            
             return View(comments);
         }
         [HttpPost]

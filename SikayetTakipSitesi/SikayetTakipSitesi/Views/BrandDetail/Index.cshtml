@@ -9,13 +9,16 @@
     <div class="col-md-4 d-flex ftco-animate">
         <div class="blog-entry align-self-stretch">
             <div class="text p-4">
-                <form method="post" asp-controller="BrandDetail">
-                    <div class="meta mb-2">
-                        <div>@ViewBag.brandName</div> <br />
-                        <div><a href="#">@complaint.ComplaintTitle</a></div>
-                        <h3 class="heading"> <a asp-controller="ComplaintDetail" asp-action="Index" asp-route-id="@complaint.PK_COMPLAINT_ID">@complaint.ComplaintContent </a></h3>
-                    </div>
-                </form>
+                @*<form method="post" asp-controller="BrandDetail">*@
+                <div class="meta mb-2">
+                    <div>@ViewBag.brandName</div> <br />
+                    <div><a href="#">@complaint.ComplaintTitle</a></div>
+                    <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@complaint.PK_COMPLAINT_ID">
+                        <button type="submit" class="btn btn-primary">@complaint.ComplaintContent</button>
+                    </form>
+                    @*<h3 class="heading"> <a asp-controller="ComplaintDetail" asp-action="Index" asp-route-id="@complaint.PK_COMPLAINT_ID">@complaint.ComplaintContent </a></h3>*@
+                </div>
+                @*</form>*@
             </div>
         </div>
     </div>

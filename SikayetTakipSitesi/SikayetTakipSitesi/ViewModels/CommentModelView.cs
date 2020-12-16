@@ -8,9 +8,13 @@ namespace SikayetTakipSitesi.ViewModels
 {
     public class CommentModelView
     {
-        public List<Comment> comments { get; set; }
-        public Member Member { get; set; }
-
+        public List<Comment> Comments { get; set; }
+        //public Comment ComplaintInformation { get; set; }
+        //public List<Comment> comments { get; set; }
         public Complaint Complaint { get; set; }
+        public Comment Comment  { get; set; }
+
+
+     
     }
 }

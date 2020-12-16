@@ -10,23 +10,27 @@
             <p>
                 <img src="images/image_1.jpg" alt="" class="img-fluid">
             </p>
-
-            <h1 class="mb-3">@ViewBag.complaintTitle</h1>
-            <h3 class="mb-3">@ViewBag.brandName</h3>
-            <p>@ViewBag.complaintContent</p>
+            <p>Şikayet Başlığı</p>
+            <h1 class="mb-3"> @Model.Complaint.ComplaintTitle</h1>
+            <p>Şikayet Edilen Marka</p>
+            <h3 class="mb-3">@Model.Complaint.FK_BRAND_ID.BrandName </h3>
+            <p>Şikayet İçeriği</p>
+            <p>@Model.Complaint.ComplaintContent</p>
 
             <div class="about-author d-flex p-4 bg-light">
                 <div class="bio mr-5">
-                    <img src="@ViewBag.userPhoto" alt="Image placeholder" class="img-fluid mb-4">
+                    <img src="@Model.Complaint.FK_MEMBER_ID.MemberPhoto" alt="Image placeholder" class="img-fluid mb-4">
                 </div>
                 <div class="desc">
-                    <h3>@ViewBag.userName @ViewBag.userLastName</h3>
-                    <p></p>
+                    <p>Şikayeti Oluşturan Kullanıcı</p>
+                    <h3>@Model.Complaint.FK_MEMBER_ID.MemberName @Model.Complaint.FK_MEMBER_ID.MemberLastName </h3>
+
                 </div>
             </div>
 
+
             <h3 class="mb-5">Yorumlar</h3>
-            @foreach (var comment in Model.comments)
+            @foreach (var comment in Model.Comments)
             {
                 <div class="pt-5 mt-5">
                     <ul class="comment-list">
@@ -36,7 +40,7 @@
                             </div>
                             <div class="comment-body">
                                 <h3>@comment.Member.MemberName @comment.Member.MemberLastName</h3>
-                                <p>@comment.CommentContent</p>
+                                <p>@comment.CommentContent </p>
                                 <p><a href="#" class="reply">Reply</a></p>
                             </div>
                         </li>
@@ -44,26 +48,33 @@
                 </div>
             }
 
-            <!--
-      <div class="comment-form-wrap pt-5">
-        <h3 class="mb-5">Yorum bırak</h3>
-        <form action="Create" method="post" asp-controller="ComplaintDetail" class="p-5 bg-light">
-            <a href="ComplaintDetail\"
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name">
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
-            </div>
 
+
+            @*1. Yol: Eğer aşağıdaki gibi post edilirse bu sayfayı post ettiği için ekleme işleninin controllerdaki adı sayfa adının post eklenmiş hali olmalı
+        farklı isim verilmek isteniyorsa 2. yol gibi yapılmalı*@
+
+            @*<form class="form-group" method="post">
+            @Html.LabelFor(x => x.Comment.CommentContent)
+            @Html.TextBoxFor(x => x.Comment.CommentContent, new { @class = "form-control" })
+
+            <br />
+            <button class="btn btn-info">Kaydet</button>
+        </form>*@
+
+
+        <form method="post" asp-action="AddComment" asp-controller="ComplaintDetail">
+            @Html.LabelFor(x => x.Comment.CommentContent)
+            @Html.TextBoxFor(x => x.Comment.CommentContent, new { @class = "form-control" })
+            <input asp-for="@Model.Comment.ComplaintId " value="@Model.Complaint.PK_COMPLAINT_ID" class="form-control" type="hidden" />
+            <br />
+
+            <button class="btn btn-info">Kaydet</button>
         </form>
-    </div>
+       
 
-          -->
+
+
+
         </div>
 
     </div>

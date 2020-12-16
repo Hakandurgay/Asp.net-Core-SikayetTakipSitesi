@@ -26,8 +26,6 @@ namespace SikayetTakipSitesi.Controllers.AdminControllers
             viewModel.Complaints = _context.Complaints.Include(x => x.FK_BRAND_ID ).
                                                         Include(y => y.FK_MEMBER_ID ).                                                
                                                         Where(b => b.ComplaintStatus == true && b.ComplaintSwitchActive == false).ToList(); //onaylanammış yorumlar gösteriliyor
-
-
             viewModel.Brands = _context.Brands.Where(c => c.BrandStatus == true).ToList();
 
             return View(viewModel);
@@ -41,7 +39,6 @@ namespace SikayetTakipSitesi.Controllers.AdminControllers
             viewModel.Complaints = _context.Complaints.Include(x => x.FK_BRAND_ID).
                                                         Include(y => y.FK_MEMBER_ID).
                                                         Where(b => b.ComplaintStatus == true && b.ComplaintSwitchActive == false).Where(x=>x.FK_BRAND_ID.PK_BRAND_ID==id).ToList(); //onaylanammış yorumlar gösteriliyor
-
 
             viewModel.Brands = _context.Brands.Where(c => c.BrandStatus == true).ToList();
 
