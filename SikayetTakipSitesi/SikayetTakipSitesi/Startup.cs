@@ -55,7 +55,7 @@ namespace SikayetTakipSitesi
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=BrandDetail}/{action=Index}/{id?}");
+                    pattern: "{controller=CategoryBrand}/{action=Index}/{id?}");
             });
         }
     }
