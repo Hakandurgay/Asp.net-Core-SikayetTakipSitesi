@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SikayetTakipSitesi.Data;
+using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
 using SikayetTakipSitesi.ViewComponents;
 using SikayetTakipSitesi.ViewModels;
 
 namespace SikayetTakipSitesi.Controllers
 {
+    [UserFilter]
     public class ComplaintDetailController : Controller
     {
         private readonly SikayetDbContext _context;
@@ -46,10 +48,8 @@ namespace SikayetTakipSitesi.Controllers
                 comment.MemberId = 2;
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", new { id = comment.ComplaintId });
-            
+                return RedirectToAction("Index", new { id = comment.ComplaintId });           
         }
-
     }
 }
 

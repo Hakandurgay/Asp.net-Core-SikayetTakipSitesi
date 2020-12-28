@@ -22,16 +22,19 @@ namespace SikayetTakipSitesi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+       
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();                  //Session için eklendi
+            services.AddDistributedMemoryCache();   //Session için eklendi
+
+
             services.AddControllersWithViews();
             services.AddDbContext<SikayetDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("SikayetDbContext")));
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -48,14 +51,14 @@ namespace SikayetTakipSitesi
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();// session için eklendi
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=CategoryBrand}/{action=Index}/{id?}");
+                    pattern: "{controller=BrandDetail}/{action=Index}/{id?}");
             });
         }
     }

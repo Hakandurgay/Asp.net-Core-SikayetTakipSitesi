@@ -10,8 +10,8 @@ using SikayetTakipSitesi.Data;
 namespace SikayetTakipSitesi.Migrations
 {
     [DbContext(typeof(SikayetDbContext))]
-    [Migration("20201211154850_ilkOlusturma")]
-    partial class ilkOlusturma
+    [Migration("20201228182601_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -190,14 +190,31 @@ namespace SikayetTakipSitesi.Migrations
                     b.Property<bool>("MemberStatus")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Role")
+                    b.Property<int>("RoleId")
                         .HasColumnType("int");
 
                     b.HasKey("PK_MEMBER_ID");
 
                     b.HasIndex("CountryId");
 
+                    b.HasIndex("RoleId");
+
                     b.ToTable("Members");
+                });
+
+            modelBuilder.Entity("SikayetTakipSitesi.Models.Role", b =>
+                {
+                    b.Property<int>("RoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("RoleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("RoleId");
+
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("SikayetTakipSitesi.Models.CategoryBrand", b =>
@@ -251,7 +268,15 @@ namespace SikayetTakipSitesi.Migrations
                         .WithMany()
                         .HasForeignKey("CountryId");
 
+                    b.HasOne("SikayetTakipSitesi.Models.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("FK_Country");
+
+                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }

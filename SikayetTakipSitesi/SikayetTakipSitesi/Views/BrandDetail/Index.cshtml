@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Complaint>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout1.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @foreach (var complaint in Model)
@@ -23,3 +23,5 @@
         </div>
     </div>
 }
+
+@section Kategoriler{ }

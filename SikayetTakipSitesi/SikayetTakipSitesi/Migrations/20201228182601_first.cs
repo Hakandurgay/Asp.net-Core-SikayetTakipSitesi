@@ -2,7 +2,7 @@
 
 namespace SikayetTakipSitesi.Migrations
 {
-    public partial class ilkOlusturma : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,6 +49,19 @@ namespace SikayetTakipSitesi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Roles",
+                columns: table => new
+                {
+                    RoleId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoleName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Roles", x => x.RoleId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CategoryBrands",
                 columns: table => new
                 {
@@ -87,7 +100,7 @@ namespace SikayetTakipSitesi.Migrations
                     MemberPhoto = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MemberStatus = table.Column<bool>(type: "bit", nullable: false),
                     CountryId = table.Column<int>(type: "int", nullable: true),
-                    Role = table.Column<int>(type: "int", nullable: false)
+                    RoleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -98,6 +111,12 @@ namespace SikayetTakipSitesi.Migrations
                         principalTable: "Countries",
                         principalColumn: "CountryId",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Members_Roles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "Roles",
+                        principalColumn: "RoleId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -193,6 +212,11 @@ namespace SikayetTakipSitesi.Migrations
                 name: "IX_Members_CountryId",
                 table: "Members",
                 column: "CountryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Members_RoleId",
+                table: "Members",
+                column: "RoleId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -217,6 +241,9 @@ namespace SikayetTakipSitesi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Countries");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
         }
     }
 }

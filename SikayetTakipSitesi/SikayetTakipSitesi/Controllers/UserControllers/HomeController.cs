@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SikayetTakipSitesi.Data;
+using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
 using SikayetTakipSitesi.ViewModels;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace SikayetTakipSitesi.Controllers
 {
+    [UserFilter]
     public class HomeController : Controller
     {
 

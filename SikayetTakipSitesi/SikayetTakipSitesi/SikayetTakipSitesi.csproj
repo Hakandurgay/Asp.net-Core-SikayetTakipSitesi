@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Admin\**" />
+    <Content Remove="Views\Admin\**" />
+    <EmbeddedResource Remove="Views\Admin\**" />
+    <None Remove="Views\Admin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\accounting-master\.DS_Store" />
     <None Include="wwwroot\accounting-master\about.html" />
     <None Include="wwwroot\accounting-master\blog-single.html" />
@@ -168,9 +175,24 @@
     <None Include="wwwroot\brand_logo\BurgerKing.png" />
     <None Include="wwwroot\brand_logo\koc_sistem_logo.png" />
     <None Include="wwwroot\brand_logo\madam_coco_logo.jpg" />
+    <None Include="wwwroot\weblogin\css\font-awesome.css" />
+    <None Include="wwwroot\weblogin\css\popup-box.css" />
+    <None Include="wwwroot\weblogin\css\style.css" />
+    <None Include="wwwroot\weblogin\fonts\fontawesome-webfont.eot" />
+    <None Include="wwwroot\weblogin\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\weblogin\fonts\fontawesome-webfont.ttf" />
+    <None Include="wwwroot\weblogin\fonts\fontawesome-webfont.woff" />
+    <None Include="wwwroot\weblogin\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\weblogin\fonts\FontAwesome.otf" />
+    <None Include="wwwroot\weblogin\images\bg.jpg" />
+    <None Include="wwwroot\weblogin\index.html" />
+    <None Include="wwwroot\weblogin\js\jquery-2.1.4.min.js" />
+    <None Include="wwwroot\weblogin\js\jquery.magnific-popup.js" />
+    <None Include="wwwroot\weblogin\w3layouts-License.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
@@ -179,10 +201,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
 
 </Project>

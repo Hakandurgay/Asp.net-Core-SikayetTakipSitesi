@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SikayetTakipSitesi.Data;
+using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
 using SikayetTakipSitesi.ViewModels;
 

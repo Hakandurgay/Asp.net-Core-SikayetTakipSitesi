@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace SikayetTakipSitesi.Models
 {
-    public enum Role
+    public class Role
     {
-        admin,
-        user
+        public int RoleId { get; set; }
+        public string RoleName { get; set; }
     }
 }

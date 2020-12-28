@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SikayetTakipSitesi.Data;
+using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
 using SikayetTakipSitesi.ViewModels;
 
 namespace SikayetTakipSitesi.Controllers.AdminControllers
 {
+    [UserFilter]
     public class AdminComplaintPage : Controller
     {
         private readonly SikayetDbContext _context;

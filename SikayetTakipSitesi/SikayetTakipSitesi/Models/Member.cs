@@ -24,8 +24,8 @@ namespace SikayetTakipSitesi.Models
         public string MemberPhoto { get; set; }
 
         public bool MemberStatus { get; set; }
-        public int? CountryId { get; set; }
-        public Country FK_Country { get; set; }
+ 
+        public int RoleId { get; set; }
         public Role Role { get; set; }
 
      //   public ICollection<Complaint> Complaints { get; set; }

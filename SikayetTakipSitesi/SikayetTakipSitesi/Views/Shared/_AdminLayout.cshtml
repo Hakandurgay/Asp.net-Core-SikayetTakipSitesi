@@ -1,4 +1,8 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http
+@{
+    string userName = Context.Session.GetString("MEMBER_NAME");
+    string userSurName = Context.Session.GetString("MEMBER_SURNAME");
+}
 @{
     Layout = null;
 }
@@ -76,6 +80,8 @@
                     <li class="nav-item"><a href="/AdminCommentPage/ComfirmCommet/" class="nav-link">Yorum Onayla</a></li>
                 </ul>
             </div>
+            <a class="btn btn-secondary" asp-controller="Login" asp-action="Logout">Çıkış Yap</a>
+            <a>@userName  @userSurName</a>
         </div>
     </nav>
     <!-- END nav -->

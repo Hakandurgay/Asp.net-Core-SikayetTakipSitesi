@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SikayetTakipSitesi.Data;
+using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
 
 namespace SikayetTakipSitesi.Controllers.AdminControllers
 {
+    [UserFilter]
     public class AdminCommentPage : Controller
     {
 

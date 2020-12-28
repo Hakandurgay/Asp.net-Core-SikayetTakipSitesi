@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@{ 
+    string userName = Context.Session.GetString("MEMBER_NAME");
+    string userSurName = Context.Session.GetString("MEMBER_SURNAME");
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Şikayet Et!</title>
@@ -50,13 +55,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Accounting</a>
-            <form action="#" class="searchform order-sm-start order-lg-last">
-                <div class="form-group d-flex">
-                    <input type="text" class="form-control pl-3" placeholder="Search">
-                    <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
-                </div>
-            </form>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa fa-bars"></span> Menu
             </button>
@@ -70,6 +69,8 @@
                     <li class="nav-item"><a href="/Complaint/Index/" class="nav-link">Şikayet Et</a></li>
                 </ul>
             </div>
+            <a class="btn btn-secondary" asp-controller="Login" asp-action="Logout">Çıkış Yap</a>
+            <a>@userName  @userSurName</a>
         </div>
     </nav>
     <!-- END nav -->

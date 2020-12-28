@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SikayetTakipSitesi.Data;
+using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
 using SikayetTakipSitesi.ViewModels;
 
 namespace SikayetTakipSitesi.Controllers
 {
+    [UserFilter]
     public class ComplaintController : Controller
     {
         private readonly SikayetDbContext _context;

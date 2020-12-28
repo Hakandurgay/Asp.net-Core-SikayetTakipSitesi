@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SikayetTakipSitesi.Data;
+using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
 
 namespace SikayetTakipSitesi.Controllers.AdminControllers
 {
+
+    [UserFilter]
     public class AdminCategoryPage : Controller
     {
         public IActionResult Index()
