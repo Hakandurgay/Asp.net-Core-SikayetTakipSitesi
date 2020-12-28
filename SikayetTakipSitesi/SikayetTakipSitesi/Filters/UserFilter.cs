@@ -13,13 +13,16 @@ namespace SikayetTakipSitesi.Filters
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            int? userId = context.HttpContext.Session.GetInt32("PK_MEMBER_ID");
+            int? userId = context.HttpContext.Session.GetInt32("MEMBER_ID");
 
-            context.Result = new RedirectToRouteResult(new RouteValueDictionary
+            if (!userId.HasValue)
+            {
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary
             {
                 {"action","LoginScreen" },
                 {"controller","Login" },
             });
+            }
 
             base.OnActionExecuting(context);
         }

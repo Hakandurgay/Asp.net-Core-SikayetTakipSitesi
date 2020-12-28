@@ -24,7 +24,7 @@ namespace SikayetTakipSitesi.Controllers
 
         public IActionResult LoginScreen()
         {
-            if (HttpContext.Session.GetInt32("PK_MEMBER_ID").HasValue)   //eğer login olunmuşsa tekrar login sayfasına gidilmesini engelliyor
+            if (HttpContext.Session.GetInt32("MEMBER_ID").HasValue)   //eğer login olunmuşsa tekrar login sayfasına gidilmesini engelliyor
             {
                 return Redirect("/CategoryBrand/Index");
             }
@@ -32,30 +32,27 @@ namespace SikayetTakipSitesi.Controllers
         }
 
 
-        public IActionResult SignIn(string MemberMail, string MemberPassword)
+        public IActionResult SignIn(Member member)
         {
-            var user = _context.Members.FirstOrDefault(x => x.MemberMail.Equals(MemberMail) && x.MemberPassword.Equals(MemberPassword) && x.Role.RoleId==2 );
+            member = _context.Members.FirstOrDefault(x => x.MemberMail.Equals(member.MemberMail) && x.MemberPassword.Equals(member.MemberPassword) && x.Role.RoleId==2 );
 
-            if(user != null)
+            if(member != null)
             {
-
-                HttpContext.Session.SetString("MEMBER_NAME", user.MemberName);
-                HttpContext.Session.SetString("MEMBER_SURNAME", user.MemberLastName);
+                SaveUserDataWithSession(member);
                 return Redirect("/CategoryBrand/Index");
 
             }
             return Redirect("LoginScreen");
         }
 
-        public IActionResult SignInAdmin(string MemberMail, string MemberPassword)
+        public IActionResult SignInAdmin(Member member)
         {
-            var user = _context.Members.FirstOrDefault(x => x.MemberMail.Equals(MemberMail) && x.MemberPassword.Equals(MemberPassword) && x.Role.RoleId == 1);
+            member = _context.Members.FirstOrDefault(x => x.MemberMail.Equals(member.MemberMail) && x.MemberPassword.Equals(member.MemberPassword) && x.Role.RoleId == 1);
 
-            if (user != null)
+            if (member != null)
             {
 
-                HttpContext.Session.SetString("MEMBER_NAME", user.MemberName);
-                HttpContext.Session.SetString("MEMBER_SURNAME", user.MemberLastName);
+                SaveUserDataWithSession(member);
                 return Redirect("/AdminBrandPage/BrandProcess");
 
             }
@@ -64,7 +61,7 @@ namespace SikayetTakipSitesi.Controllers
         public IActionResult Register(Member member)
         {
             member.MemberStatus = true;
-            member.RoleId = 1;
+            member.RoleId = 2;
             _context.Members.Add(member);
             _context.SaveChanges();
             return Redirect("LoginScreen");
@@ -77,5 +74,13 @@ namespace SikayetTakipSitesi.Controllers
             return Redirect("LoginScreen");
                     
         }
+
+        private void SaveUserDataWithSession(Member member)
+        {
+            HttpContext.Session.SetInt32("MEMBER_ID", member.PK_MEMBER_ID);
+            HttpContext.Session.SetString("MEMBER_NAME", member.MemberName);
+            HttpContext.Session.SetString("MEMBER_SURNAME", member.MemberLastName);
+        }
+
     }
 }

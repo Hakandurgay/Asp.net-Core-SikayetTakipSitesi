@@ -12,6 +12,8 @@ using SikayetTakipSitesi.ViewModels;
 
 namespace SikayetTakipSitesi.Controllers
 {
+    [UserFilter]
+
     public class CategoryBrandController : Controller
     {
         private readonly SikayetDbContext _context;
