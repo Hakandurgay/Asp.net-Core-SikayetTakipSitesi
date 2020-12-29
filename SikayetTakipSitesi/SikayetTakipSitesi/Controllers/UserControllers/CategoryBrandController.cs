@@ -39,7 +39,6 @@ namespace SikayetTakipSitesi.Controllers
         {
             //categoryBrandViewModel.Category = await _context.CategoryBrands.Include(x => x.Category).Where(y => y.Category.CategoryStatus == true).ToListAsync();
             //categoryBrandViewModel.Brand = await _context.CategoryBrands.Include(x => x.Brand).Where(y => y.BrandId == id &&  y.Brand.BrandStatus == true).ToListAsync();
-
             //return View(categoryBrandViewModel);
             List<CategoryBrand> categoryBrands = await _context.CategoryBrands.Include(cb => cb.Brand).Where(y => y.Category.CategoryStatus == true && y.CategoryId == id).ToListAsync();
             List<Brand> brands = new List<Brand>();
@@ -51,9 +50,7 @@ namespace SikayetTakipSitesi.Controllers
         }
         //public ActionResult GetBrand(int id)
         //{
-
         //    Brand brand = _context.Brands.Find(id);
-
         //    return RedirectToAction("Index", "Complaint", brand);
         //}
     }

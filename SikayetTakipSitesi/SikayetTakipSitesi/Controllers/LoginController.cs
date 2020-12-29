@@ -9,11 +9,11 @@ using SikayetTakipSitesi.Models;
 
 namespace SikayetTakipSitesi.Controllers
 {
+
     public class LoginController : Controller
     {
 
         private readonly SikayetDbContext _context;
-
 
         public LoginController(SikayetDbContext context)
         {
@@ -28,7 +28,6 @@ namespace SikayetTakipSitesi.Controllers
             }
             return View();
         }
-
 
         public IActionResult SignIn(Member member)
         {
