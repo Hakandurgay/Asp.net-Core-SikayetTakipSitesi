@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 @{ 
+    int? userid = Context.Session.GetInt32("MEMBER_ID");
     string userName = Context.Session.GetString("MEMBER_NAME");
     string userSurName = Context.Session.GetString("MEMBER_SURNAME");
 }
@@ -70,7 +71,9 @@
                 </ul>
             </div>
             <a class="btn btn-secondary" asp-controller="Login" asp-action="Logout">Çıkış Yap</a>
-            <a>@userName  @userSurName</a>
+            <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@userid">
+                <button type="submit"  class="btn btn-primary2 font-weight-light "> @userName  @userSurName </button>
+                </form>
         </div>
     </nav>
     <!-- END nav -->

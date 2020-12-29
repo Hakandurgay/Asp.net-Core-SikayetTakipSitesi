@@ -23,8 +23,9 @@
                 </div>
                 <div class="desc">
                     <p>Şikayeti Oluşturan Kullanıcı</p>
-                    <h3>@Model.Complaint.FK_MEMBER_ID.MemberName @Model.Complaint.FK_MEMBER_ID.MemberLastName </h3>
-
+                    <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@Model.Complaint.MemberId"> 
+                    <button type="submit"  class="btn btn-primary2 font-weight-light"> <h3>@Model.Complaint.FK_MEMBER_ID.MemberName @Model.Complaint.FK_MEMBER_ID.MemberLastName </h3> </button>
+                        </form>
                 </div>
             </div>
 
@@ -39,9 +40,11 @@
                                 <!--    <img src="images/person_1.jpg" alt="Image placeholder"> -->
                             </div>
                             <div class="comment-body">
-                                <h3>@comment.Member.MemberName @comment.Member.MemberLastName</h3>
-                                <p>@comment.CommentContent </p>
-                                <p><a href="#" class="reply">Reply</a></p>
+                                    <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@comment.MemberId">
+                                        <button type="submit"  class="btn btn-primary2 font-weight-light" ><h3>@comment.Member.MemberName @comment.Member.MemberLastName</h3> </button>
+                                    </form>
+                                    <p>@comment.CommentContent </p>
+                                    <p><a href="#" class="reply">Reply</a></p>
                             </div>
                         </li>
                     </ul>

@@ -17,8 +17,6 @@ namespace SikayetTakipSitesi.Controllers
 
         public LoginController(SikayetDbContext context)
         {
-           
-
             _context = context;
         }
 
