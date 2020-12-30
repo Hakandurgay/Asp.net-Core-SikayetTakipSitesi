@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using SikayetTakipSitesi.Data;
 using SikayetTakipSitesi.Models;
 
@@ -14,14 +15,19 @@ namespace SikayetTakipSitesi.Controllers
     {
 
         private readonly SikayetDbContext _context;
+        private readonly IStringLocalizer<LoginController> _localizer;
+        private readonly IStringLocalizer<SharedResources> _sharedLocalizer;
 
-        public LoginController(SikayetDbContext context)
+        public LoginController(SikayetDbContext context, IStringLocalizer<LoginController> localizer, IStringLocalizer<SharedResources> sharedLocalizer)
         {
             _context = context;
+            _localizer = localizer;
+            _sharedLocalizer = sharedLocalizer;
         }
-
         public IActionResult LoginScreen()
         {
+            ViewData["Message"] = _localizer.GetString("Message");
+
             if (HttpContext.Session.GetInt32("MEMBER_ID").HasValue)   //eğer login olunmuşsa tekrar login sayfasına gidilmesini engelliyor
             {
                 return Redirect("/CategoryBrand/Index");

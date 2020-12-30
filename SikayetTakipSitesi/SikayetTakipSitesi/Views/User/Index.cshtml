@@ -48,7 +48,7 @@ else
                 <div class="meta mb-2">
                     <div>@comment.Complaint.ComplaintTitle</div> <br />
                     <div>@comment.Complaint.FK_BRAND_ID.BrandName</div>
-                    <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@comment.PK_COMMENT_ID">
+                    <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@comment.Complaint.PK_COMPLAINT_ID">
                         <div><button type="submit" class="btn btn-primary2 font-weight-light"> @comment.CommentContent</button></div>
                     </form>
                 </div>
