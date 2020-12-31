@@ -5,9 +5,10 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>AddBrand</h1>
+<h1>Marka Ekle</h1><br />
 
-
+<div class="contact-wrap w-100 p-md-5 p-4" style="background-color:darkseagreen ; border-style:ridge ; border-color:forestgreen ; border-width:5px">
+    <div  style="background-color:darkseagreen">
 
 <form class="form-group" method="post">  @*ekleme işlemi sayfa adıyla aynıysa böyle post edileilibr*@
     @Html.LabelFor(x => x.BrandName)
@@ -17,7 +18,8 @@
     <br />
     <button class="btn btn-info">Kaydet</button>
 </form>
-
+        </div>
+    </div>
 @section Markalar{
 
 

@@ -5,24 +5,26 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>UpdateBrand</h1>
+<h1> Markaları Güncelle</h1><br />
 
+<div class="contact-wrap w-100 p-md-5 p-4" style="background-color:darkseagreen ; border-style:ridge ; border-color:forestgreen ; border-width:5px">
+    <div style="background-color:darkseagreen">
+        @using (Html.BeginForm("UpdateBrand", "AdminBrandPage", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.LabelFor(x => x.BrandName)
+                @Html.TextBoxFor(x => x.BrandName, new { @class = "form-control" })
+                @Html.LabelFor(x => x.BrandPhoto)
+                @Html.TextBoxFor(x => x.BrandPhoto, new { @class = "form-control" })
+                @Html.HiddenFor(x => x.PK_BRAND_ID)
+            </div>
+            <button class="btn btn-warning">Güncelle</button>
+        }
 
-@using (Html.BeginForm("UpdateBrand", "AdminBrandPage", FormMethod.Post))
-{
-    <div class="form-group">
-        @Html.LabelFor(x => x.BrandName)
-        @Html.TextBoxFor(x => x.BrandName, new { @class = "form-control" })
-        @Html.LabelFor(x => x.BrandPhoto)
-        @Html.TextBoxFor(x => x.BrandPhoto, new { @class = "form-control" })
-        @Html.HiddenFor(x => x.PK_BRAND_ID)
+</div>
     </div>
-    <button class="btn btn-warning">Güncelle</button>
-}
-
-
-@section Markalar{
+        @section Markalar{
 
 
 
-}
+        }

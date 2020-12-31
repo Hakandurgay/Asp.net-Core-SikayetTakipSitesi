@@ -4,17 +4,23 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>AddCategory</h1>
+<h1>Kategori Ekle</h1><br />
 
-<form class="form-group" method="post">
-    @Html.LabelFor(x => x.CategoryName)
-    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
-    <br />
-    <button class="btn btn-info">Kaydet</button>
-</form>
-
-@section Markalar{
+<div class="contact-wrap w-100 p-md-5 p-4" style="background-color:darkseagreen ; border-style:ridge ; border-color:forestgreen ; border-width:5px">
+    <div style="background-color:darkseagreen">
 
 
+        <form class="form-group" method="post">
 
-}
+            @Html.LabelFor(x => x.CategoryName)
+            @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+            <br />
+            <button class="btn btn-info">Kaydet</button>
+        </form>
+        </div>
+    </div>
+    @section Markalar{
+
+
+
+    }

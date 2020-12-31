@@ -4,17 +4,24 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm("UpdateCategory", "Admin", FormMethod.Post))
-{
-    <div class="form-group">
-        @Html.LabelFor(x => x.CategoryName)
-        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
-        @Html.HiddenFor(x => x.PK_CATEGORY_ID)
-    </div>
-    <button class="btn btn-warning">Güncelle</button>
-}
-
-@section Markalar{
+<div class="contact-wrap w-100 p-md-5 p-4" style="background-color:darkseagreen ; border-style:ridge ; border-color:forestgreen ; border-width:5px">
+    <div style="background-color:darkseagreen">
 
 
-}
+        @using (Html.BeginForm("UpdateCategory", "Admin", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.LabelFor(x => x.CategoryName)
+                @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+                @Html.HiddenFor(x => x.PK_CATEGORY_ID)
+            </div>
+            <button class="btn btn-warning">Güncelle</button>
+        }
+
+     </div>
+ </div>
+
+        @section Markalar{
+
+
+        }

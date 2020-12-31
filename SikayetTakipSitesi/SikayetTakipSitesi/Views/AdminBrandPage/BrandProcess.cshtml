@@ -4,12 +4,12 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>BrandProcess</h1>
+<h1>Marka İşlemleri</h1><br />
 @foreach (var brand in Model)
 {
     <table>
-        <div class="cases-wrap d-md-flex align-items-center">
-            <div class="img" style="background-image:url(@brand.BrandPhoto ); background-size: 300px;"></div>
+        <div class="cases-wrap d-md-flex align-items-center"  style="border-style:ridge; background-color:#f2f2f2; width: 600px">
+            <div class="img" style="background-image:url(@brand.BrandPhoto );background-size: 250px; background-color:white "></div>
 
             <div class="text pl-md-5">
                 <a> <span class="cat">@brand.BrandName</span></a>

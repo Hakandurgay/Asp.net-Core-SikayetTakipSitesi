@@ -4,43 +4,63 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>ComfirmCommet</h1>
+<h1>Yorum işlemleri</h1><br/>
+
+<table class="table table-bordered" style="margin-top: 20px;  border-style:ridge ; border-color:forestgreen ; border-width:5px">
+    <tr style=" padding-top: 12px; padding-bottom: 12px; text-align: left; background-color: #4CAF50; color: white;">
+        <th>Marka Adı</th>
+        <th>Yorumu oluşturan</th>
+        <th>Başlık</th>
+        <th>İçerik</th>
+        <th>Onayla</th>
+        <th>Sil</th>
+
+    </tr>
 
 
 
+    @foreach (var comment in Model)
+    {
+        
+            
+          <tr>
+              <td>
+                  <a> <span class="cat">@comment.Complaint.FK_BRAND_ID.BrandName </span></a>
 
-@foreach (var comment in Model)
-{
-    <div class="cases-wrap d-md-flex align-items-center">
+              </td>
 
-        <div class="text pl-md-5">
-            <p>Yorumun Yazıldığı Marka:</p>
-            <a> <span class="cat">@comment.Complaint.FK_BRAND_ID.BrandName </span></a>
+              <td>
+                <a> <span class="cat">@comment.Member.MemberName @comment.Member.MemberLastName </span></a>
 
-            <p>Yorumu Yazan Kullanıcı Adı:</p>
-            <a> <span class="cat">@comment.Member.MemberName @comment.Member.MemberLastName </span></a>
+              </td>
+               
+              <td>
+                  <a> <span class="cat">@comment.Complaint.ComplaintTitle  </span></a>
+              </td>
+               
+              <td>
+                  <a> <span class="cat">@comment.CommentContent </span></a>
+              </td>
 
+              <td>
+                  <a href="/AdminCommentPage/ComfirmComment_ConfirmButton/@comment.PK_COMMENT_ID" class="btn btn-primary">Onayla</a>
 
-            <p>Yorumun Yazıldığı Şikayet Başlığı:</p>
-            <a> <span class="cat">@comment.Complaint.ComplaintTitle  </span></a>
+              </td>
 
-            <p>Yorumun İçeriği:</p>
-            <a> <span class="cat">@comment.CommentContent </span></a>
+              <td>
+                  <a href="/AdminCommentPage/ComfirmComment_RejectButton/@comment.PK_COMMENT_ID" class="btn btn-danger">Sil</a>
+              </td>
+               
+            
+          </tr>
 
-            <p>
-                <a href="/AdminCommentPage/ComfirmComment_ConfirmButton/@comment.PK_COMMENT_ID" class="btn btn-Primary">Onayla</a>
+    }
 
-                <a href="/AdminCommentPage/ComfirmComment_RejectButton/@comment.PK_COMMENT_ID" class="btn btn-Danger">Sil</a>
+    
+</table>
 
-            </p>
-        </div>
-    </div>
+    @section Markalar{
 
-}
+        @await Component.InvokeAsync("BrandList")
 
-
-@section Markalar{
-
-    @await Component.InvokeAsync("BrandList")
-
-}
+    }

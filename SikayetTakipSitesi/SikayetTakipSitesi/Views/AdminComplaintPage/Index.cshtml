@@ -1,43 +1,57 @@
-﻿@model SikayetTakipSitesi.ViewModels.AdminComplaintViewModel
+﻿
+@model SikayetTakipSitesi.ViewModels.AdminComplaintViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Şikayet İşlemleri </h1>
+<br />
+
+<table class="table table-bordered" style="margin-top: 20px;  border-style:ridge ; border-color:forestgreen ; border-width:5px">
+    <tr style=" padding-top: 12px; padding-bottom: 12px; text-align: left; background-color: #4CAF50; color: white;">
+        <th>Marka Adı</th>
+        <th>Şikayeti oluşturan</th>
+        <th>Başlık</th>
+        <th>İçerik</th>
+        <th>Onayla</th>
+        <th>Sil</th>
+
+    </tr>
+
+
+    @foreach (var complaint in Model.Complaints)
+    {
+
+
+        <tr>
+
+            <td><a> <span class="cat">@complaint.FK_BRAND_ID.BrandName </span></a></td>
+
+
+            <td><a> <span class="cat">@complaint.FK_MEMBER_ID.MemberName @complaint.FK_MEMBER_ID.MemberLastName </span></a></td>
 
 
 
-@foreach (var complaint in Model.Complaints)
-{
-    <div class="cases-wrap d-md-flex align-items-center">
-
-        <div class="text pl-md-5">
-            <p>Şikayetin Yazıldığı Marka:</p>
-            <a> <span class="cat">@complaint.FK_BRAND_ID.BrandName </span></a>
-
-            <p>Şikayeti Yazan Kullanıcı Adı:</p>
-            <a> <span class="cat">@complaint.FK_MEMBER_ID.MemberName @complaint.FK_MEMBER_ID.MemberLastName </span></a>
+            <td><a> <span class="cat">@complaint.ComplaintTitle  </span></a></td>
 
 
-            <p>Şikayet Başlığı:</p>
-            <a> <span class="cat">@complaint.ComplaintTitle  </span></a>
+            <td><a> <span class="cat">@complaint.ComplaintContent</span></a></td>
 
-            <p>Şikayet İçeriği:</p>
-            <a> <span class="cat">@complaint.ComplaintContent</span></a>
 
-            <p>
+            <td>
                 <a href="/AdminComplaintPage/ConfirmComplaint/@complaint.PK_COMPLAINT_ID" class="btn btn-primary">Onayla</a>
 
+
+
+            </td>
+            <td>
                 <a href="/AdminComplaintPage/RejectComplaint/@complaint.PK_COMPLAINT_ID" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+    }
 
-            </p>
-        </div>
-    </div>
-
-}
-
-
+</table>
 
 @section Markalar{
 
@@ -60,3 +74,5 @@
 
 
 }
+
+

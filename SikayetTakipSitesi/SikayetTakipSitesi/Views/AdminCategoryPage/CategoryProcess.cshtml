@@ -4,13 +4,14 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>CategoryProcess</h1>
+<h1>Kategori İşlemleri</h1><br />
 
 
-<table class="table table-bordered" style="margin-top: 20px; margin-left: 20px;">
-    <tr>
+<table class="table table-bordered" style="margin-top: 20px;  border-style:ridge ; border-color:forestgreen ; border-width:5px">
+    <tr style=" padding-top: 12px; padding-bottom: 12px; text-align: left; background-color: #4CAF50; color: white;">
         <th>Kategori Ad</th>
         <th>Güncelle</th>
+        <th>Sil</th>
 
     </tr>
     @foreach (var category in Model)
@@ -22,15 +23,18 @@
               
                 <a href="/AdminCategoryPage/GetCategory/@category.PK_CATEGORY_ID" class="btn btn-warning">Güncelle</a>
 
+            </td>
+            <td>
+                
                 <a href="/AdminCategoryPage/DeleteCategory/@category.PK_CATEGORY_ID" class="btn btn-danger">Sil</a>
             </td>
         </tr>
     }
 
 </table>
-<form method="get" asp-action="AddCategory" asp-controller="AdminCategoryPage">
+ <form method="get" asp-action="AddCategory" asp-controller="AdminCategoryPage">
     <button type="submit" class="btn btn-primary">Kategori Ekle</button>
-</form>
+ </form>
 
 
 @section Markalar{
