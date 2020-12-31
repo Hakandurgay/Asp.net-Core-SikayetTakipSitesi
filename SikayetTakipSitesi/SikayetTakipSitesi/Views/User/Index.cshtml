@@ -8,7 +8,7 @@
 
 }
 
-<div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge; background-color:#f2f2f2; width: 600px">
+<div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge;border-color:forestgreen; background-color:#f2f2f2; width: 600px">
     <div class="img" style="background-image:url(kullanıcı photo ); background-size: 250px; background-color:white"></div>
 
     <div class="text pl-md-5">
@@ -19,17 +19,18 @@
 @if (ViewBag.kontrol == "sikayet")
 {
 
-<h2>ŞİKAYETLER</h2>
+<h2><b>ŞİKAYETLER</b></h2><br />
 @foreach (var complaint in Model.Complaints)
 {
     <div class="col-md-4 d-flex ftco-animate">
         <div class="blog-entry align-self-stretch">
-            <div class="text p-4">
+            <div class="text p-4" style="width:600px ;border-style: ridge ; border-top-style:ridge ; border-color:forestgreen ;background-color: #f2f2f2 ; float:left">
                 <div class="meta mb-2">
-                    <div>@complaint.ComplaintTitle</div> <br />
-                    <div>@complaint.FK_BRAND_ID.BrandName</div>
+                    <div style="border-style:hidden; background-color: white" ><font color="black"><b>@complaint.FK_BRAND_ID.BrandName</b></font></div> <br />
+                    <div style="border-bottom-style: double"><b>@complaint.ComplaintTitle</b></div>
+
                     <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@complaint.PK_COMPLAINT_ID">
-                        <div><button type="submit" class="btn btn-primary2 font-weight-light">@complaint.ComplaintContent</button></div>
+                        <div><button type="submit" style=" border-style:hidden ; background-color:white">@complaint.ComplaintContent</button></div>
                     </form>
                 </div>
             </div>
@@ -39,18 +40,19 @@
 }
 else
 {
-<h2>YORUMLAR</h2>
+<h2><b>YORUMLAR</b></h2><br />
 @foreach (var comment in Model.Comments)
 {
     <div class="col-md-4 d-flex ftco-animate">
         <div class="blog-entry align-self-stretch">
-            <div class="text p-4">
+            <div class="text p-4" style="width:600px ;border-style: ridge ; border-top-style:ridge ; border-color:forestgreen ;background-color: #f2f2f2 ; float:left">
                 <div class="meta mb-2">
-                    <div>@comment.Complaint.ComplaintTitle</div> <br />
-                    <div>@comment.Complaint.FK_BRAND_ID.BrandName</div>
-                    <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@comment.Complaint.PK_COMPLAINT_ID">
-                        <div><button type="submit" class="btn btn-primary2 font-weight-light"> @comment.CommentContent</button></div>
-                    </form>
+                    <div style="border-style:hidden; background-color: white"><font color="black"><b>@comment.Complaint.FK_BRAND_ID.BrandName</b></font></div><br />
+                    <div style="border-bottom-style: double"><b>@comment.Complaint.ComplaintTitle</b></div>
+                  
+                        <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@comment.Complaint.PK_COMPLAINT_ID">
+                            <div><button type="submit" style=" border-style:hidden ; background-color:white"> @comment.CommentContent</button></div>
+                        </form>                   
                 </div>
             </div>
         </div>

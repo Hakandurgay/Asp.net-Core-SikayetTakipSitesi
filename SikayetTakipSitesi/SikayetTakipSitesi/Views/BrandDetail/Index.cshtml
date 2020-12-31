@@ -4,24 +4,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@foreach (var complaint in Model)
-{
-    <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry align-self-stretch">
-            <div class="text p-4">
-                @*<form method="post" asp-controller="BrandDetail">*@
-                <div class="meta mb-2">
-                    <div>@ViewBag.brandName</div> <br />
-                    <div><a href="#">@complaint.ComplaintTitle</a></div>
-                    <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@complaint.PK_COMPLAINT_ID">
-                        <button type="submit" class="btn btn-primary">@complaint.ComplaintContent</button>
-                    </form>
-                    @*<h3 class="heading"> <a asp-controller="ComplaintDetail" asp-action="Index" asp-route-id="@complaint.PK_COMPLAINT_ID">@complaint.ComplaintContent </a></h3>*@
-                </div>
-                @*</form>*@
+
+    @foreach (var complaint in Model)
+    {
+        <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">               
+                    <div class="text p-4" style="width:600px ;border-style: ridge ; border-top-style:ridge ; border-color:forestgreen ;background-color: #f2f2f2 ; float:left">                       
+                        <div class="meta mb-2">
+                            <div style="border-bottom-style: double"><a href="#"><b>@complaint.ComplaintTitle</b></a></div>
+                            <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@complaint.PK_COMPLAINT_ID">
+                                <button type="submit" style=" border-style:hidden ; background-color:white" >@complaint.ComplaintContent</button>
+                            </form>                         
+                        </div>                     
+                    </div>                
             </div>
+        </div>
+    }
+
+
+
+@section Kategoriler{ 
+
+    <div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge; border-color:forestgreen;background-color:#f2f2f2; width: 400px ; height: 200px; position: absolute; right: 5px;">
+        <div class="img" style="background-image:url(@ViewBag.BrandPhoto ); background-size:200px;width:200px ;background-color:white ; height: 190px"></div>
+
+        <div class="text pl-md-5">
+            <a> <span class="cat"> @ViewBag.brandName </span></a>
         </div>
     </div>
 }
-
-@section Kategoriler{ }

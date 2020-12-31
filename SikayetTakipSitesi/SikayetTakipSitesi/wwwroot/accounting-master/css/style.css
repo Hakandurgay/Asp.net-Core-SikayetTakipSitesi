@@ -9277,7 +9277,7 @@ textarea.form-control {
       margin-bottom: 30px; } }
   .blog-entry .text {
     position: relative;
-    border-top: 0;
+    border-top: 2;
     border-radius: 2px; }
     .blog-entry .text .tag {
       color: #b3b3b3; }
