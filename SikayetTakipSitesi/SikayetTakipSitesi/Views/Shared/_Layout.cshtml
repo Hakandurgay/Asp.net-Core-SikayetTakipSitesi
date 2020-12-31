@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Http
-@{ 
+@{
     int? userid = Context.Session.GetInt32("MEMBER_ID");
     string userName = Context.Session.GetString("MEMBER_NAME");
     string userSurName = Context.Session.GetString("MEMBER_SURNAME");
@@ -62,21 +62,21 @@
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item" ><a href="/Home/Index" class="nav-link">Ana Sayfa</a></li>
-                    <li class="nav-item" ><a href="about.html" class="nav-link">Şikayetler</a></li>
+                    <li class="nav-item"><a href="/Home/Index/" class="nav-link">Ana Sayfa</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">Şikayetler</a></li>
                     <!--  <li class="nav-item"><a href="services.html" class="nav-link">Markalar</a></li> -->
-                    <li class="nav-item" ><a href="/CategoryBrand/Index/" class="nav-link">Markalar</a></li>
+                    <li class="nav-item"><a href="/CategoryBrand/Index/" class="nav-link">Markalar</a></li>
                     <!--     <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
-                    <li class="nav-item" ><a href="/Complaint/Index/" class="nav-link">Şikayet Et</a></li>
+                    <li class="nav-item"><a href="/Complaint/Index/" class="nav-link">Şikayet Et</a></li>
                 </ul>
             </div>
             <a class="btn btn-secondary" asp-controller="Login" asp-action="Logout">Çıkış Yap</a>
             <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@userid">
-                <button type="submit"  class="btn btn-primary2 font-weight-light "> @userName  @userSurName </button>
-                </form>
+                <button type="submit" class="btn btn-primary2 font-weight-light "> @userName  @userSurName </button>
+            </form>
         </div>
     </nav>
-    <!-- END nav -->
+    END nav
     <section class="hero-wrap hero-wrap-2" style="background-image: url('../../accounting-master/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">

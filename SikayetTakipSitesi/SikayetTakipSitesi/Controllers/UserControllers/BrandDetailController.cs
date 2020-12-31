@@ -26,7 +26,7 @@ namespace SikayetTakipSitesi.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            List<Complaint> complaints = await _context.Complaints.Where(c => c.ComplaintStatus == true).ToListAsync();
+            List<Complaint> complaints = await _context.Complaints.Where(c => c.ComplaintStatus == true && c.ComplaintSwitchActive==true).ToListAsync();
             return View(complaints);
         }
 

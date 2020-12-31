@@ -43,8 +43,8 @@ namespace SikayetTakipSitesi.Controllers
         {
             complaint.ComplaintSwitchActive = false;
             complaint.ComplaintStatus = true;
-            complaint.MemberId = 2;
-     
+            //  complaint.MemberId = 3;
+
 
 
             _context.Complaints.Add(complaint);

@@ -1,7 +1,9 @@
-﻿@model SikayetTakipSitesi.ViewModels.CommentModelView
+﻿@using Microsoft.AspNetCore.Http
+@model SikayetTakipSitesi.ViewModels.CommentModelView
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int? userid = Context.Session.GetInt32("MEMBER_ID");
 }
 
 <div class="container">
@@ -23,9 +25,11 @@
                 </div>
                 <div class="desc">
                     <p>Şikayeti Oluşturan Kullanıcı</p>
-                    <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@Model.Complaint.MemberId"> 
-                    <button type="submit"  class="btn btn-primary2 font-weight-light"> <h3>@Model.Complaint.FK_MEMBER_ID.MemberName @Model.Complaint.FK_MEMBER_ID.MemberLastName </h3> </button>
-                        </form>
+                    <form method="post" asp-action="Index" asp-controller="User">
+                        <button type="submit" class="btn btn-primary2 font-weight-light"> <h3>@Model.Complaint.FK_MEMBER_ID.MemberName @Model.Complaint.FK_MEMBER_ID.MemberLastName </h3> </button>
+
+
+                    </form>
                 </div>
             </div>
 
@@ -40,11 +44,11 @@
                                 <!--    <img src="images/person_1.jpg" alt="Image placeholder"> -->
                             </div>
                             <div class="comment-body">
-                                    <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@comment.MemberId">
-                                        <button type="submit"  class="btn btn-primary2 font-weight-light" ><h3>@comment.Member.MemberName @comment.Member.MemberLastName</h3> </button>
-                                    </form>
-                                    <p>@comment.CommentContent </p>
-                                    <p><a href="#" class="reply">Reply</a></p>
+                                <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@comment.MemberId">
+                                    <button type="submit" class="btn btn-primary2 font-weight-light"><h3>@comment.Member.MemberName @comment.Member.MemberLastName</h3> </button>
+                                </form>
+                                <p>@comment.CommentContent </p>
+                                <p><a href="#" class="reply">Reply</a></p>
                             </div>
                         </li>
                     </ul>
@@ -54,26 +58,26 @@
 
 
             @*1. Yol: Eğer aşağıdaki gibi post edilirse bu sayfayı post ettiği için ekleme işleninin controllerdaki adı sayfa adının post eklenmiş hali olmalı
-        farklı isim verilmek isteniyorsa 2. yol gibi yapılmalı*@
+                farklı isim verilmek isteniyorsa 2. yol gibi yapılmalı*@
 
             @*<form class="form-group" method="post">
-            @Html.LabelFor(x => x.Comment.CommentContent)
-            @Html.TextBoxFor(x => x.Comment.CommentContent, new { @class = "form-control" })
+                    @Html.LabelFor(x => x.Comment.CommentContent)
+                    @Html.TextBoxFor(x => x.Comment.CommentContent, new { @class = "form-control" })
 
-            <br />
-            <button class="btn btn-info">Kaydet</button>
-        </form>*@
+                    <br />
+                    <button class="btn btn-info">Kaydet</button>
+                </form>*@
 
 
-        <form method="post" asp-action="AddComment" asp-controller="ComplaintDetail">
-            @Html.LabelFor(x => x.Comment.CommentContent)
-            @Html.TextBoxFor(x => x.Comment.CommentContent, new { @class = "form-control" })
-            <input asp-for="@Model.Comment.ComplaintId " value="@Model.Complaint.PK_COMPLAINT_ID" class="form-control" type="hidden" />
-            <br />
+            <form method="post" asp-action="AddComment" asp-controller="ComplaintDetail" asp-route-userId="@userid">
+                @Html.LabelFor(x => x.Comment.CommentContent)
+                @Html.TextBoxFor(x => x.Comment.CommentContent, new { @class = "form-control" })
+                <input asp-for="@Model.Comment.ComplaintId " value="@Model.Complaint.PK_COMPLAINT_ID" class="form-control" type="hidden" />
+                <br />
 
-            <button class="btn btn-info">Kaydet</button>
-        </form>
-       
+                <button class="btn btn-info">Kaydet</button>
+            </form>
+
 
 
 
