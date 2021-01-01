@@ -82,7 +82,7 @@
             <img src="@Model.Complaint.FK_MEMBER_ID.MemberPhoto" alt="Image placeholder" class="img-fluid mb-4" >
         </div>
         <div class="text pl-md-5">
-            <form method="post" asp-action="Index" asp-controller="User">
+            <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@Model.Complaint.FK_MEMBER_ID.PK_MEMBER_ID">
                 <button type="submit" class="btn btn-primary2 font-weight-light"> <h3><b>@Model.Complaint.FK_MEMBER_ID.MemberName @Model.Complaint.FK_MEMBER_ID.MemberLastName</b> </h3> </button>
             </form>
         </div>

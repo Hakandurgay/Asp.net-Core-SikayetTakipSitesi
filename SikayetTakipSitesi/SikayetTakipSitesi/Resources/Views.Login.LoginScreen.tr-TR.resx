@@ -120,13 +120,34 @@
   <data name="Admin_Giris" xml:space="preserve">
     <value>Admin Girişi</value>
   </data>
+  <data name="bilgi" xml:space="preserve">
+    <value>Giriş Yapmak İçin Aşağıdaki Bilgileri Giriniz</value>
+  </data>
+  <data name="form" xml:space="preserve">
+    <value>Kayıt Formu</value>
+  </data>
+  <data name="giris" xml:space="preserve">
+    <value>Giriş Yap</value>
+  </data>
+  <data name="isim" xml:space="preserve">
+    <value>Adınız</value>
+  </data>
   <data name="Kayıt_Ol" xml:space="preserve">
     <value>Kayıt Ol</value>
   </data>
   <data name="Kullanıcı_Giris" xml:space="preserve">
     <value>Kullanıcı Girişi</value>
   </data>
-  <data name="Merhaba" xml:space="preserve">
-    <value>Merhaba Dünya!</value>
+  <data name="mail" xml:space="preserve">
+    <value>E-Postanız</value>
+  </data>
+  <data name="sifre" xml:space="preserve">
+    <value>Şifreniz</value>
+  </data>
+  <data name="sikayet_et" xml:space="preserve">
+    <value>ŞİKAYET ET!</value>
+  </data>
+  <data name="soyisim" xml:space="preserve">
+    <value>Soyadınız</value>
   </data>
 </root>

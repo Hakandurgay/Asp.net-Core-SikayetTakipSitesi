@@ -117,37 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Admin_Giris" xml:space="preserve">
-    <value>Admin Login</value>
+  <data name="ana_sayfa" xml:space="preserve">
+    <value>Home Page</value>
   </data>
-  <data name="bilgi" xml:space="preserve">
-    <value>Enter Information to Login</value>
+  <data name="cikis" xml:space="preserve">
+    <value>Log Out</value>
   </data>
-  <data name="form" xml:space="preserve">
-    <value>Register Form</value>
+  <data name="islemler" xml:space="preserve">
+    <value>Category Operations</value>
   </data>
-  <data name="giris" xml:space="preserve">
-    <value>Login</value>
+  <data name="marka" xml:space="preserve">
+    <value>Add Brand</value>
   </data>
-  <data name="isim" xml:space="preserve">
-    <value>Name</value>
+  <data name="onay" xml:space="preserve">
+    <value>Confirm Complaint</value>
   </data>
-  <data name="Kayıt_Ol" xml:space="preserve">
-    <value>Register</value>
-  </data>
-  <data name="Kullanıcı_Giris" xml:space="preserve">
-    <value>User Login</value>
-  </data>
-  <data name="mail" xml:space="preserve">
-    <value>E-Mail</value>
-  </data>
-  <data name="sifre" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="sikayet_et" xml:space="preserve">
-    <value>COMPLAIN!</value>
-  </data>
-  <data name="soyisim" xml:space="preserve">
-    <value>LastName</value>
+  <data name="yorum" xml:space="preserve">
+    <value>Confirm Comment</value>
   </data>
 </root>

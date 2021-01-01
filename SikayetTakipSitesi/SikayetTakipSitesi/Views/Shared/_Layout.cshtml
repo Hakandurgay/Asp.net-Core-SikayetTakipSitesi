@@ -62,38 +62,47 @@
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item"><a href="/Home/Index/" class="nav-link">Ana Sayfa</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">Şikayetler</a></li>
+                    <li class="nav-item"><a href="/Home/Index/" class="nav-link">@Localizer["ana_sayfa"]</a></li>
+                    <!-- <li class="nav-item"><a href="about.html" class="nav-link">@Localizer["sikayetler"]</a></li> -->
                     <!--  <li class="nav-item"><a href="services.html" class="nav-link">Markalar</a></li> -->
-                    <li class="nav-item"><a href="/CategoryBrand/Index/" class="nav-link">Markalar</a></li>
+                    <li class="nav-item"><a href="/CategoryBrand/Index/" class="nav-link">@Localizer["markalar"]</a></li>
                     <!--     <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
-                    <li class="nav-item"><a href="/Complaint/Index/" class="nav-link">Şikayet Et</a></li>
+                    <li class="nav-item"><a href="/Complaint/Index/" class="nav-link">@Localizer["sikayet_et"]</a></li>
                 </ul>
+                <div class="register-left">
+                    <div class="register">
+                        <div class="row">
+                            <div class="col-sm-6 text-right">
+                                @await Html.PartialAsync("_SelectLanguagePartial")
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a class="btn btn-secondary" asp-controller="Login" asp-action="Logout">Çıkış Yap</a>
+
+            <a class="btn btn-secondary" asp-controller="Login" asp-action="Logout">@Localizer["cıkıs"]</a>
             <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@userid">
                 <button type="submit" class="btn btn-primary2 font-weight-light "> @userName  @userSurName </button>
             </form>
         </div>
     </nav>
-   
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('../../accounting-master/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-end">
-                <div class="col-md-9 ftco-animate pb-5">
-                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Case Study <i class="ion-ios-arrow-forward"></i></span></p>
-                    <h1 class="mb-0 bread">Case Study</h1>
+
+        <section class="hero-wrap hero-wrap-2" style="background-image: url('../../accounting-master/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text align-items-end">
+                    <div class="col-md-9 ftco-animate pb-5">
+                        <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Case Study <i class="ion-ios-arrow-forward"></i></span></p>
+                        <h1 class="mb-0 bread">Case Study</h1>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
     <section class="ftco-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
-                   
+
                     @RenderBody()
 
                     <div class="row mt-5">
@@ -146,8 +155,7 @@
                 <div class="col-md-9 py-5">
                     <div class="row">
                         <div class="col-md-4 mb-md-0 mb-4">
-                            <h2 class="footer-heading">About us</h2>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                            <h2 class="footer-heading">@Localizer["hakkımızda"]</h2>
                             <ul class="ftco-footer-social p-0">
                                 <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
                                 <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>

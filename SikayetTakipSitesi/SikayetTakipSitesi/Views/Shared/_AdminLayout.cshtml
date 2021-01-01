@@ -59,28 +59,20 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Accounting</a>
-            <form action="#" class="searchform order-sm-start order-lg-last">
-                <div class="form-group d-flex">
-                    <input type="text" class="form-control pl-3" placeholder="Search">
-                    <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
-                </div>
-            </form>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa fa-bars"></span> Menu
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Ana Sayfa</a></li>
-                    <li class="nav-item"><a href="/AdminCategoryPage/CategoryProcess/" class="nav-link">Kategori İşlemleri</a></li>
-                    <li class="nav-item"><a href="/AdminComplaintPage/Index/" class="nav-link">Şikayet Onayla</a></li>
+                    <li class="nav-item"><a href="/AdminCategoryPage/CategoryProcess/" class="nav-link">@Localizer["islemler"]</a></li>
+                    <li class="nav-item"><a href="/AdminComplaintPage/Index/" class="nav-link">@Localizer["onay"]</a></li>
                     <!--  <li class="nav-item"><a href="services.html" class="nav-link">Markalar</a></li> -->
-                    <li class="nav-item active"><a href="/AdminBrandPage/BrandProcess/" class="nav-link">Marka Ekle</a></li>
+                    <li class="nav-item active"><a href="/AdminBrandPage/BrandProcess/" class="nav-link">@Localizer["marka"]</a></li>
                     <!--     <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
-                    <li class="nav-item"><a href="/AdminCommentPage/ComfirmCommet/" class="nav-link">Yorum Onayla</a></li>
+                    <li class="nav-item"><a href="/AdminCommentPage/ComfirmCommet/" class="nav-link">@Localizer["yorum"]</a></li>
                 </ul>
             </div>
-            <a class="btn btn-secondary" asp-controller="Login" asp-action="Logout">Çıkış Yap</a>
+            <a class="btn btn-secondary" asp-controller="Login" asp-action="Logout">@Localizer["cikis"]</a>
             <a>@userName  @userSurName</a>
         </div>
     </nav>
@@ -150,6 +142,15 @@
 
     <footer class="footer">
         <div class="container-fluid px-lg-5">
+            <div class="register-left">
+                <div class="register">
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            @await Html.PartialAsync("_SelectLanguagePartial")
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-9 py-5">
                     <div class="row">

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using SikayetTakipSitesi.Data;
 
 namespace SikayetTakipSitesi
@@ -36,6 +38,21 @@ namespace SikayetTakipSitesi
                 options.ResourcesPath = "Resources";   
             });
 
+            //kullanýlacak diller
+            services.Configure<RequestLocalizationOptions>(
+            opts =>
+            {
+                var supportedCultures = new List<CultureInfo>
+           {
+                new CultureInfo("tr-TR"),
+                new CultureInfo("en-Us"),
+           };
+
+                opts.DefaultRequestCulture = new RequestCulture("tr-TR");
+                opts.SupportedCultures = supportedCultures;
+                opts.SupportedUICultures = supportedCultures;
+            });
+
             services
                 .AddMvc()
                 .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
@@ -52,7 +69,7 @@ namespace SikayetTakipSitesi
          
             //standart routing mekanizmasý ile dil desteði kullanmak
             //kullanýlacak diller
-            var supportedCultures = new List<CultureInfo>
+        /*    var supportedCultures = new List<CultureInfo>
             {
                 new CultureInfo("tr-TR"),
                 new CultureInfo("en-Us"),
@@ -65,6 +82,12 @@ namespace SikayetTakipSitesi
                 SupportedUICultures=supportedCultures,
                 DefaultRequestCulture=new Microsoft.AspNetCore.Localization.RequestCulture("tr-TR")
             });
+
+            */
+            app.UseStaticFiles();
+
+            var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(options.Value);
 
             if (env.IsDevelopment())
             {
