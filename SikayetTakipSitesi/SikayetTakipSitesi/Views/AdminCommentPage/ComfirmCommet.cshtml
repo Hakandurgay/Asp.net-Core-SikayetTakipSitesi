@@ -1,10 +1,16 @@
-﻿@model List<Comment>
+﻿@using SikayetTakipSitesi.Models
+
+@using X.PagedList.Mvc.Core
+
+@model X.PagedList.IPagedList<Comment>
+
 @{
     ViewData["Title"] = "ComfirmCommet";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Yorum işlemleri</h1><br/>
+<h1>Yorum işlemleri</h1>
+<br />
 
 <table class="table table-bordered" style="margin-top: 20px;  border-style:ridge ; border-color:forestgreen ; border-width:5px">
     <tr style=" padding-top: 12px; padding-bottom: 12px; text-align: left; background-color: #4CAF50; color: white;">
@@ -21,46 +27,63 @@
 
     @foreach (var comment in Model)
     {
-        
-            
-          <tr>
-              <td>
-                  <a> <span class="cat">@comment.Complaint.FK_BRAND_ID.BrandName </span></a>
 
-              </td>
 
-              <td>
+        <tr>
+            <td>
+                <a> <span class="cat">@comment.Complaint.FK_BRAND_ID.BrandName </span></a>
+
+            </td>
+
+            <td>
                 <a> <span class="cat">@comment.Member.MemberName @comment.Member.MemberLastName </span></a>
 
-              </td>
-               
-              <td>
-                  <a> <span class="cat">@comment.Complaint.ComplaintTitle  </span></a>
-              </td>
-               
-              <td>
-                  <a> <span class="cat">@comment.CommentContent </span></a>
-              </td>
+            </td>
 
-              <td>
-                  <a href="/AdminCommentPage/ComfirmComment_ConfirmButton/@comment.PK_COMMENT_ID" class="btn btn-primary">Onayla</a>
+            <td>
+                <a> <span class="cat">@comment.Complaint.ComplaintTitle  </span></a>
+            </td>
 
-              </td>
+            <td>
+                <a> <span class="cat">@comment.CommentContent </span></a>
+            </td>
 
-              <td>
-                  <a href="/AdminCommentPage/ComfirmComment_RejectButton/@comment.PK_COMMENT_ID" class="btn btn-danger">Sil</a>
-              </td>
-               
-            
-          </tr>
+            <td>
+                <a href="/AdminCommentPage/ComfirmComment_ConfirmButton/@comment.PK_COMMENT_ID" class="btn btn-primary">Onayla</a>
+
+            </td>
+
+            <td>
+                <a href="/AdminCommentPage/ComfirmComment_RejectButton/@comment.PK_COMMENT_ID" class="btn btn-danger">Sil</a>
+            </td>
+
+
+        </tr>
 
     }
 
-    
+
 </table>
 
-    @section Markalar{
 
-        @await Component.InvokeAsync("BrandList")
+<div class="row mt-5">
+    <div class="col">
+        <div class="block-27">
+            <ul>
 
-    }
+                <li>
+                    @Html.PagedListPager(Model, sayfa => Url.Action("ComfirmCommet", new { sayfa }))
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+@section Markalar{
+
+    @await Component.InvokeAsync("BrandList")
+
+}

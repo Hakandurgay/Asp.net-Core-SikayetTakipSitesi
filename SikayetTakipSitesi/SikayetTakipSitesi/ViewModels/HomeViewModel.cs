@@ -8,7 +8,8 @@ namespace SikayetTakipSitesi.ViewModels
 {
     public class HomeViewModel
     {
-        public Brand Brand { get; set; }
+        public List<Brand> Brands { get; set; }
         public List<Complaint> Complaint { get; set; }
+        public List<String> BrandNames { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
 using SikayetTakipSitesi.ViewComponents;
 using SikayetTakipSitesi.ViewModels;
+using X.PagedList;
 
 namespace SikayetTakipSitesi.Controllers
 {
@@ -26,7 +27,7 @@ namespace SikayetTakipSitesi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index(int id, int sayfa=1)
         {
 
             //id li şikayetin member, complaint  ve brand bilgilerini getiriyor
@@ -35,7 +36,7 @@ namespace SikayetTakipSitesi.Controllers
                                                                    Where(y => y.PK_COMPLAINT_ID == id && y.ComplaintStatus == true && y.ComplaintSwitchActive == true).FirstOrDefaultAsync();
             commentModelView.Comments = await _context.Comments.Include(x => x.Member).
                                                           Where(a => a.Complaint.PK_COMPLAINT_ID == id && a.Complaint.ComplaintSwitchActive == true && a.Complaint.ComplaintStatus == true).
-                                                          Where(a => a.CommentSwitchActive == true && a.CommentStatus == true).ToListAsync(); //complaint id si id olanların yorumlarını left join yaparak getiriyor
+                                                          Where(a => a.CommentSwitchActive == true && a.CommentStatus == true).ToPagedListAsync(sayfa,5); //complaint id si id olanların yorumlarını left join yaparak getiriyor
 
             return View(commentModelView);
         }

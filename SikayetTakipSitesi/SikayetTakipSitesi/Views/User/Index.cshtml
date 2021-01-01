@@ -1,10 +1,13 @@
 ﻿
 @model SikayetTakipSitesi.ViewModels.UserViewModel
+@using Microsoft.AspNetCore.Http
 
+
+@using X.PagedList.Mvc.Core
 @{
 
     ViewData["Title"] = "Index";
- Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
 
@@ -12,63 +15,90 @@
     <div class="img" style="background-image:url(kullanıcı photo ); background-size: 250px; background-color:white"></div>
 
     <div class="text pl-md-5">
-            <a> <span class="cat"> @ViewBag.username @ViewBag.userLastname</span></a>
+        <a> <span class="cat"> @ViewBag.username @ViewBag.userLastname</span></a>
     </div>
 </div>
 
 @if (ViewBag.kontrol == "sikayet")
 {
 
-<h2><b>ŞİKAYETLER</b></h2><br />
-@foreach (var complaint in Model.Complaints)
-{
-    <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry align-self-stretch">
-            <div class="text p-4" style="width:600px ;border-style: ridge ; border-top-style:ridge ; border-color:forestgreen ;background-color: #f2f2f2 ; float:left">
-                <div class="meta mb-2">
-                    <div style="border-style:hidden; background-color: white" ><font color="black"><b>@complaint.FK_BRAND_ID.BrandName</b></font></div> <br />
-                    <div style="border-bottom-style: double"><b>@complaint.ComplaintTitle</b></div>
+    <h2><b>ŞİKAYETLER</b></h2>
+    <br />
+    @foreach (var complaint in Model.Complaints)
+    {
+        <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+                <div class="text p-4" style="width:600px ;border-style: ridge ; border-top-style:ridge ; border-color:forestgreen ;background-color: #f2f2f2 ; float:left">
+                    <div class="meta mb-2">
+                        <div style="border-style:hidden; background-color: white"><font color="black"><b>@complaint.FK_BRAND_ID.BrandName</b></font></div> <br />
+                        <div style="border-bottom-style: double"><b>@complaint.ComplaintTitle</b></div>
 
-                    <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@complaint.PK_COMPLAINT_ID">
-                        <div><button type="submit" style=" border-style:hidden ; background-color:white">@complaint.ComplaintContent</button></div>
-                    </form>
+                        <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@complaint.PK_COMPLAINT_ID">
+                            <div><button type="submit" style=" border-style:hidden ; background-color:white">@complaint.ComplaintContent</button></div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+    }
+    <div class="row mt-5">
+        <div class="col">
+            <div class="block-27">
+                <ul>
+                    <li>
+                        @Html.PagedListPager(Model.Complaints, sayfa => Url.Action("Index", new { sayfa }))
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-}
 }
 else
 {
-<h2><b>YORUMLAR</b></h2><br />
-@foreach (var comment in Model.Comments)
-{
-    <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry align-self-stretch">
-            <div class="text p-4" style="width:600px ;border-style: ridge ; border-top-style:ridge ; border-color:forestgreen ;background-color: #f2f2f2 ; float:left">
-                <div class="meta mb-2">
-                    <div style="border-style:hidden; background-color: white"><font color="black"><b>@comment.Complaint.FK_BRAND_ID.BrandName</b></font></div><br />
-                    <div style="border-bottom-style: double"><b>@comment.Complaint.ComplaintTitle</b></div>
-                  
+    <h2><b>YORUMLAR</b></h2>
+    <br />
+    @foreach (var comment in Model.Comments)
+    {
+        <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+                <div class="text p-4" style="width:600px ;border-style: ridge ; border-top-style:ridge ; border-color:forestgreen ;background-color: #f2f2f2 ; float:left">
+                    <div class="meta mb-2">
+                        <div style="border-style:hidden; background-color: white"><font color="black"><b>@comment.Complaint.FK_BRAND_ID.BrandName</b></font></div><br />
+                        <div style="border-bottom-style: double"><b>@comment.Complaint.ComplaintTitle</b></div>
+
                         <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@comment.Complaint.PK_COMPLAINT_ID">
                             <div><button type="submit" style=" border-style:hidden ; background-color:white"> @comment.CommentContent</button></div>
-                        </form>                   
+                        </form>
+                    </div>
                 </div>
+            </div>
+        </div>
+    }
+    <div class="row mt-5">
+        <div class="col">
+            <div class="block-27">
+                <ul>
+                    <li>
+                        @Html.PagedListPager(Model.Comments, sayfa => Url.Action("Index", new { sayfa }))
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 }
+
+
+@section SayfaBilgisi{
+    Kullanıcı Sayfası
 }
-
-
 
 @section Kategoriler{
     <div class="sidebar-box ftco-animate">
         <div class="categories">
-            <form method="get" asp-action="Index" asp-controller="User" >
-                <li><button type="submit" class="btn btn-primary2 font-weight-light " asp-route-type="1"  > <span class="ion-ios-arrow-forward">Şikayetler</span></button></li>
-                 
-                <li><button type="submit" class="btn btn-primary2 font-weight-light "  asp-route-type="2"  ><span class="ion-ios-arrow-forward">Yorumlar</span></button></li>
+            <form method="get" asp-action="Index" asp-controller="User">
+                <li><button type="submit" class="btn btn-primary2 font-weight-light " asp-route-type="1"> <span class="ion-ios-arrow-forward">Şikayetler</span></button></li>
+
+                <li><button type="submit" class="btn btn-primary2 font-weight-light " asp-route-type="2"><span class="ion-ios-arrow-forward">Yorumlar</span></button></li>
             </form>
         </div>
     </div>

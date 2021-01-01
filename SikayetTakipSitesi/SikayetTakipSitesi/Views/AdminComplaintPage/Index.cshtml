@@ -1,4 +1,6 @@
-﻿
+﻿@using SikayetTakipSitesi.ViewModels
+@using X.PagedList.Mvc.Core
+
 @model SikayetTakipSitesi.ViewModels.AdminComplaintViewModel
 @{
     ViewData["Title"] = "Index";
@@ -51,7 +53,21 @@
         </tr>
     }
 
+
 </table>
+<div class="row mt-5">
+    <div class="col">
+        <div class="block-27">
+            <ul>
+
+                <li>
+                    @Html.PagedListPager(Model.Complaints, sayfa => Url.Action("Index", new { sayfa }))
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
 
 @section Markalar{
 
@@ -72,7 +88,19 @@
         </div>
     </div>
 
+    <div class="row mt-5">
+        <div class="col">
+            <div class="block-27">
+                <ul>
 
+                    <li>
+                        @Html.PagedListPager(Model.Brands, sayfa2 => Url.Action("Index", new { sayfa2 }))
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
 }
 
 

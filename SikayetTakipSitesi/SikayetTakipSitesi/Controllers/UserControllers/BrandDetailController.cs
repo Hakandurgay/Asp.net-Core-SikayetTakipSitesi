@@ -8,6 +8,7 @@ using SikayetTakipSitesi.Data;
 using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
 using SikayetTakipSitesi.ViewModels;
+using X.PagedList;
 
 namespace SikayetTakipSitesi.Controllers
 {
@@ -21,23 +22,24 @@ namespace SikayetTakipSitesi.Controllers
             this._context = context;
         }
 
-        BrandDetailModelView brandDetailModelView = new BrandDetailModelView();
+
+
+        //[HttpGet]
+        //public async Task<IActionResult> Index(int sayfa=1)
+        //{
+
+        //   var complaints = await _context.Complaints.Where(c => c.ComplaintStatus == true && c.ComplaintSwitchActive==true).ToPagedListAsync(sayfa,5);
+        //    return View(complaints);
+        //}
 
         [HttpGet]
-        public async Task<IActionResult> Index()
-        {
-            List<Complaint> complaints = await _context.Complaints.Where(c => c.ComplaintStatus == true && c.ComplaintSwitchActive==true).ToListAsync();
-            return View(complaints);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index(int id,int sayfa=1)
         {
             Brand brand = _context.Brands.Find(id);
             ViewBag.brandName = brand.BrandName;
             ViewBag.BrandPhoto = brand.BrandPhoto;
-          //  ViewBag.memberName = brandDetailModelView.Member.MemberName;  -->bunun eklenmesi lazım buraya member controlleri oluşturunca bak.
-            List<Complaint> complaints = await _context.Complaints.Include(x => x.FK_BRAND_ID).Where(y => y.FK_BRAND_ID.BrandStatus == true && y.ComplaintStatus == true && y.FK_BRAND_ID.PK_BRAND_ID == id).ToListAsync();
+              //  -->bunun eklenmesi lazım buraya member controlleri oluşturunca bak. memeber name
+            IPagedList<Complaint> complaints = await _context.Complaints.Include(x => x.FK_BRAND_ID).Where(y => y.FK_BRAND_ID.BrandStatus == true && y.ComplaintStatus == true && y.ComplaintSwitchActive==true && y.FK_BRAND_ID.PK_BRAND_ID == id).ToPagedListAsync(sayfa,5);
             return View(complaints);
         }
     }

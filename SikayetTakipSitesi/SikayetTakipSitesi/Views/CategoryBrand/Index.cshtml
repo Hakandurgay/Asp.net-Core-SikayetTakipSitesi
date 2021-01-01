@@ -1,4 +1,8 @@
-﻿@model IEnumerable<Brand>
+﻿@using SikayetTakipSitesi.Models
+
+@using X.PagedList.Mvc.Core
+
+@model X.PagedList.IPagedList<Brand>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,7 +26,7 @@
                     <button type="submit" class="btn btn-primary">Şikayet Yaz </button>
                 </form>
                 <br />
-                <form method="post" asp-action="Index" asp-controller="BrandDetail" asp-route-id="@brand.PK_BRAND_ID ">
+                <form method="get" asp-action="Index" asp-controller="BrandDetail" asp-route-id="@brand.PK_BRAND_ID ">
                     <button type="submit" class="btn btn-primary">Markaya Git</button>
                 </form>
             </p>
@@ -31,8 +35,24 @@
 
 }
 
+<div class="row mt-5">
+    <div class="col">
+        <div class="block-27">
+            <ul>
+
+                <li>
+                    @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }))
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
 
 
+@section SayfaBilgisi{
+    Markalar
+}
 @section Kategoriler{
 
     @await Component.InvokeAsync("CategoryMenu")

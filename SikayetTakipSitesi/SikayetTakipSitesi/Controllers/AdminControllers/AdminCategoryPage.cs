@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using SikayetTakipSitesi.Data;
 using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
+using X.PagedList;
 
 namespace SikayetTakipSitesi.Controllers.AdminControllers
 {
@@ -24,9 +25,9 @@ namespace SikayetTakipSitesi.Controllers.AdminControllers
             this._context = context;
         }
 
-        public IActionResult CategoryProcess()
+        public IActionResult CategoryProcess(int sayfa=1)
         {
-            List<Category> categoryValues = _context.Categories.Where(x => x.CategoryStatus == true).ToList();
+            var categoryValues = _context.Categories.Where(x => x.CategoryStatus == true).ToList().ToPagedList(sayfa,5);
 
             return View(categoryValues);
         }

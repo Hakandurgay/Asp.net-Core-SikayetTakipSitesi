@@ -1,10 +1,15 @@
-﻿@model List<Category>
+﻿@using SikayetTakipSitesi.Models
+
+@using X.PagedList.Mvc.Core
+
+@model X.PagedList.IPagedList<Category>
 @{
     ViewData["Title"] = "CategoryProcess";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Kategori İşlemleri</h1><br />
+<h1>Kategori İşlemleri</h1>
+<br />
 
 
 <table class="table table-bordered" style="margin-top: 20px;  border-style:ridge ; border-color:forestgreen ; border-width:5px">
@@ -20,23 +25,36 @@
 
             <td>@category.CategoryName </td>
             <td>
-              
+
                 <a href="/AdminCategoryPage/GetCategory/@category.PK_CATEGORY_ID" class="btn btn-warning">Güncelle</a>
 
             </td>
             <td>
-                
+
                 <a href="/AdminCategoryPage/DeleteCategory/@category.PK_CATEGORY_ID" class="btn btn-danger">Sil</a>
             </td>
         </tr>
     }
 
 </table>
- <form method="get" asp-action="AddCategory" asp-controller="AdminCategoryPage">
+<form method="get" asp-action="AddCategory" asp-controller="AdminCategoryPage">
     <button type="submit" class="btn btn-primary">Kategori Ekle</button>
- </form>
+</form>
 
 
+<div class="row mt-5">
+    <div class="col">
+        <div class="block-27">
+            <ul>
+
+                <li>
+                    @Html.PagedListPager(Model, sayfa => Url.Action("CategoryProcess", new { sayfa }))
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
 @section Markalar{
 
 

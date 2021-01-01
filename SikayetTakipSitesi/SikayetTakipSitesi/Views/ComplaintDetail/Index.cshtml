@@ -1,5 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Http
 @model SikayetTakipSitesi.ViewModels.CommentModelView
+@using SikayetTakipSitesi.Models
+
+@using X.PagedList.Mvc.Core
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,21 +13,21 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 ftco-animate">
-                <div class="text p-4" style="width:600px ;height:auto; border-style: ridge ; border-top-style:ridge ; border-color:forestgreen;background-color: #f2f2f2 ; float:left">
-                    <p>
-                        <img src="images/image_1.jpg" alt="" class="img-fluid">
-                    </p>
+            <div class="text p-4" style="width:600px ;height:auto; border-style: ridge ; border-top-style:ridge ; border-color:forestgreen;background-color: #f2f2f2 ; float:left">
+                <p>
+                    <img src="images/image_1.jpg" alt="" class="img-fluid">
+                </p>
 
-                    <h3 class="mb-3"><font color="black"><b> @Model.Complaint.ComplaintTitle </b></font></h3>
+                <h3 class="mb-3"><font color="black"><b> @Model.Complaint.ComplaintTitle </b></font></h3>
 
-                    <h5 class="mb-3"><b>@Model.Complaint.FK_BRAND_ID.BrandName</b></h5>
-                    <p><b>Şikayet İçeriği</b></p>
-                    <div style="background-color:white; background-size:50px">
+                <h5 class="mb-3"><b>@Model.Complaint.FK_BRAND_ID.BrandName</b></h5>
+                <p><b>Şikayet İçeriği</b></p>
+                <div style="background-color:white; background-size:50px">
 
-                        <p><font color="black"><b>@Model.Complaint.ComplaintContent</b></font></p>
-                    </div>
+                    <p><font color="black"><b>@Model.Complaint.ComplaintContent</b></font></p>
                 </div>
-           
+            </div>
+
 
             <h3 class="mb-5"><b>Yorumlar</b></h3>
             @foreach (var comment in Model.Comments)
@@ -39,28 +43,40 @@
                                     <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@comment.MemberId">
                                         <button type="submit" class="btn btn-primary2 font-weight-light"><h3><b>@comment.Member.MemberName @comment.Member.MemberLastName</b></h3> </button>
                                     </form>
-                                    <p><b>@comment.CommentContent </b></p>                                  
+                                    <p><b>@comment.CommentContent </b></p>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
             }
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="block-27">
+                        <ul>
 
+                            <li>
+                                @Html.PagedListPager(Model.Comments, sayfa => Url.Action("Index", new { sayfa }))
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
 
             @*1. Yol: Eğer aşağıdaki gibi post edilirse bu sayfayı post ettiği için ekleme işleninin controllerdaki adı sayfa adının post eklenmiş hali olmalı
-        farklı isim verilmek isteniyorsa 2. yol gibi yapılmalı*@
+                farklı isim verilmek isteniyorsa 2. yol gibi yapılmalı*@
 
             @*<form class="form-group" method="post">
-            @Html.LabelFor(x => x.Comment.CommentContent)
-            @Html.TextBoxFor(x => x.Comment.CommentContent, new { @class = "form-control" })
+                    @Html.LabelFor(x => x.Comment.CommentContent)
+                    @Html.TextBoxFor(x => x.Comment.CommentContent, new { @class = "form-control" })
 
-            <br />
-            <button class="btn btn-info">Kaydet</button>
-        </form>*@
+                    <br />
+                    <button class="btn btn-info">Kaydet</button>
+                </form>*@
 
-  
+
             <form method="post" asp-action="AddComment" asp-controller="ComplaintDetail" asp-route-userId="@userid">
 
                 @Html.LabelFor(x => x.Comment.CommentContent)
@@ -70,16 +86,24 @@
 
                 <button class="btn btn-info">Kaydet</button>
 
-            </form>    
+            </form>
         </div>
 
     </div>
 </div>
 
+@section SayfaBilgisi{ 
+   Şikayete Gelen Yorumlar
+}
+
+
+
+
 @section Kategoriler{
+    <h2> Şikayette Bulunan Kullanıcı</h2>
     <div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge; background-color:white; width: 400px ; height: 200px; position: absolute; right: 5px; ">
-        <div class="img" style="background-size:200px ;width:200px; background-color:white ; height: 190px" >
-            <img src="@Model.Complaint.FK_MEMBER_ID.MemberPhoto" alt="Image placeholder" class="img-fluid mb-4" >
+        <div class="img" style="background-size:200px ;width:200px; background-color:white ; height: 190px">
+            <img src="@Model.Complaint.FK_MEMBER_ID.MemberPhoto" alt="Image placeholder" class="img-fluid mb-4">
         </div>
         <div class="text pl-md-5">
             <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@Model.Complaint.FK_MEMBER_ID.PK_MEMBER_ID">

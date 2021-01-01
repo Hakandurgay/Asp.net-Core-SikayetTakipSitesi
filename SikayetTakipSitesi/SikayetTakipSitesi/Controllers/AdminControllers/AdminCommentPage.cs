@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using SikayetTakipSitesi.Data;
 using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
+using X.PagedList;
 
 namespace SikayetTakipSitesi.Controllers.AdminControllers
 {
@@ -27,26 +28,27 @@ namespace SikayetTakipSitesi.Controllers.AdminControllers
         }
 
         [HttpGet]
-        public IActionResult ComfirmCommet()
+        public IActionResult ComfirmCommet(int sayfa = 1)
         {
             //  (_context.Comments.Select(z => z.MemberId))
 
-            List<Comment> comments = _context.Comments.Include(x => x.Member).
+            var degerler = _context.Comments.Include(x => x.Member).
                                                            Include(y => y.Complaint).
                                                            Include(y => y.Complaint.FK_BRAND_ID).
-                                                           Where(b => b.CommentStatus == true && b.CommentSwitchActive == false).ToList(); //onaylanammış yorumlar gösteriliyor
-     
-            
-            return View(comments);
+                                                           Where(b => b.CommentStatus == true && b.CommentSwitchActive == false).ToList().ToPagedList(sayfa, 8);  //onaylanammış yorumlar gösteriliyor
+
+
+
+            return View(degerler);
         }
         [HttpPost]
-        public IActionResult ComfirmCommet(int id)
+        public IActionResult ComfirmCommet(int id, int sayfa = 1)
         {
-            List<Comment> comments = _context.Comments.Include(x => x.Member).
+            var degerler = _context.Comments.Include(x => x.Member).
                                                            Include(y => y.Complaint).
                                                            Include(y => y.Complaint.FK_BRAND_ID).
-                                                           Where(b => b.CommentStatus == true && b.CommentSwitchActive == false).Where(z => z.Complaint.FK_BRAND_ID.PK_BRAND_ID == id).ToList(); //onaylanammış yorumlar gösteriliyor
-            return View(comments);
+                                                           Where(b => b.CommentStatus == true && b.CommentSwitchActive == false).Where(z => z.Complaint.FK_BRAND_ID.PK_BRAND_ID == id).ToList().ToPagedList(sayfa,8); //onaylanammış yorumlar gösteriliyor
+            return View(degerler);
         }
 
         public IActionResult ComfirmComment_ConfirmButton(int id)

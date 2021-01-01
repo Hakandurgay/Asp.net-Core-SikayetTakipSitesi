@@ -1,29 +1,51 @@
-﻿@model IEnumerable<Complaint>
+﻿@using SikayetTakipSitesi.Models
+
+@using X.PagedList.Mvc.Core
+
+@model X.PagedList.IPagedList<Complaint>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-    @foreach (var complaint in Model)
-    {
-        <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">               
-                    <div class="text p-4" style="width:600px ;border-style: ridge ; border-top-style:ridge ; border-color:forestgreen ;background-color: #f2f2f2 ; float:left">                       
-                        <div class="meta mb-2">
-                            <div style="border-bottom-style: double"><a href="#"><b>@complaint.ComplaintTitle</b></a></div>
-                            <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@complaint.PK_COMPLAINT_ID">
-                                <button type="submit" style=" border-style:hidden ; background-color:white" >@complaint.ComplaintContent</button>
-                            </form>                         
-                        </div>                     
-                    </div>                
+@foreach (var complaint in Model)
+{
+    <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry align-self-stretch">
+            <div class="text p-4" style="width:600px ;border-style: ridge ; border-top-style:ridge ; border-color:forestgreen ;background-color: #f2f2f2 ; float:left">
+                <div class="meta mb-2">
+                    <div style="border-bottom-style: double"><a href="#"><b>@complaint.ComplaintTitle</b></a></div>
+                    <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@complaint.PK_COMPLAINT_ID">
+                        <button type="submit" style=" border-style:hidden ; background-color:white">@complaint.ComplaintContent</button>
+                    </form>
+                </div>
             </div>
         </div>
-    }
+    </div>
+}
 
 
+<div class="row mt-5">
+    <div class="col">
+        <div class="block-27">
+            <ul>
 
-@section Kategoriler{ 
+                <li>
+                    @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }))
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+@section SayfaBilgisi{
+  Markaya Gelen Şikayetler
+}
+
+@section Kategoriler{
 
     <div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge; border-color:forestgreen;background-color:#f2f2f2; width: 400px ; height: 200px; position: absolute; right: 5px;">
         <div class="img" style="background-image:url(@ViewBag.BrandPhoto ); background-size:200px;width:200px ;background-color:white ; height: 190px"></div>

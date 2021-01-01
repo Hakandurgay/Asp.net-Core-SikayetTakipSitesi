@@ -1,14 +1,20 @@
-﻿@model List<Brand>
+﻿@using SikayetTakipSitesi.Models
+
+@using X.PagedList.Mvc.Core
+
+@model X.PagedList.IPagedList<Brand>
+
 @{
     ViewData["Title"] = "BrandProcess";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Marka İşlemleri</h1><br />
+<h1>Marka İşlemleri</h1>
+<br />
 @foreach (var brand in Model)
 {
     <table>
-        <div class="cases-wrap d-md-flex align-items-center"  style="border-style:ridge; background-color:#f2f2f2; width: 600px">
+        <div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge; background-color:#f2f2f2; width: 600px">
             <div class="img" style="background-image:url(@brand.BrandPhoto );background-size: 250px; background-color:white "></div>
 
             <div class="text pl-md-5">
@@ -24,7 +30,25 @@
             </div>
         </div>
     </table>
+
+
 }
+
+<div class="row mt-5">
+    <div class="col">
+        <div class="block-27">
+            <ul>
+
+                <li>
+                    @Html.PagedListPager(Model, sayfa => Url.Action("BrandProcess", new { sayfa }))
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
 <form method="get" asp-action="AddBrand" asp-controller="AdminBrandPage">
     <button type="submit" class="btn btn-primary">Marka Ekle</button>
 </form>

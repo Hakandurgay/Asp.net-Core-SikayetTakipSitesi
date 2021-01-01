@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using SikayetTakipSitesi.Data;
 using SikayetTakipSitesi.Filters;
 using SikayetTakipSitesi.Models;
-
+using X.PagedList;
 namespace SikayetTakipSitesi.Controllers.AdminControllers
 {
     [UserFilter]
@@ -23,9 +23,9 @@ namespace SikayetTakipSitesi.Controllers.AdminControllers
         {
             return View();
         }
-        public IActionResult BrandProcess()
+        public IActionResult BrandProcess(int sayfa = 1)
         {
-            List<Brand> brandValues = _context.Brands.Where(x => x.BrandStatus == true).ToList();
+            var brandValues = _context.Brands.Where(x => x.BrandStatus == true).ToList().ToPagedList(sayfa,3);
 
             return View(brandValues);
 
@@ -66,5 +66,7 @@ namespace SikayetTakipSitesi.Controllers.AdminControllers
             _context.SaveChanges();
             return RedirectToAction("BrandProcess");
         }
+
+       
     }
 }

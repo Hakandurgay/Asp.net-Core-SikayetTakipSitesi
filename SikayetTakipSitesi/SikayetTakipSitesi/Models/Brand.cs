@@ -15,8 +15,8 @@ namespace SikayetTakipSitesi.Models
         public bool BrandStatus { get; set; }
 
         public string BrandPhoto { get; set; }
-       
 
+        public string BrandContent { get; set; }
         // public ICollection<Complaint> Complaints { get; set; }
 
         // public int MyProperty { get; set; }

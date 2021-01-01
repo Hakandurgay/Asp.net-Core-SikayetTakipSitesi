@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace SikayetTakipSitesi.Controllers
 {
     [UserFilter]
@@ -27,39 +28,20 @@ namespace SikayetTakipSitesi.Controllers
         public async Task<IActionResult> Index()
         {
 
-            
+            ViewBag.MarkaSayisi = _context.Brands.Count().ToString();
+            ViewBag.MusteriSayisi = _context.Members.Count().ToString();
+            ViewBag.SikayetSayisi = _context.Complaints.Count().ToString();
+            ViewBag.YorumSayisi = _context.Comments.Count().ToString();
 
 
+            homeViewModel.Brands = await _context.Brands.ToListAsync();
 
-            homeViewModel.Complaint = await _context.Complaints.Include(x => x.FK_BRAND_ID).Where(z => z.ComplaintStatus == true).ToListAsync();
-            var most = _context.Complaints.GroupBy(i => i.FK_BRAND_ID.BrandName).OrderByDescending(grp => grp.Count());
+            homeViewModel.BrandNames = await _context.Complaints.GroupBy(x => x.FK_BRAND_ID.BrandName).OrderByDescending(z => z.Count()).Select(k => k.Key).ToListAsync();
 
-
-
-
-            //List<Brand> brands = new List<Brand>();
-            ////   categoryBrandViewModel.CategoryBrand =await _context.CategoryBrands.Include(c => c.Brand).Where(z=>z.Brand.BrandStatus==true).Include(c => c.Category).Where(z=>z.Category.CategoryStatus==true).ToListAsync();
-            //List<Complaint> complaints = await _context.Complaints.Include(x => x.FK_BRAND_ID).ToListAsync();
             return View(homeViewModel);
         }
 
-        //    [HttpPost]
-        //public async Task<IActionResult> Index(int id)
-        //{
-        //    //categoryBrandViewModel.Category = await _context.CategoryBrands.Include(x => x.Category).Where(y => y.Category.CategoryStatus == true).ToListAsync();
-        //    //categoryBrandViewModel.Brand = await _context.CategoryBrands.Include(x => x.Brand).Where(y => y.BrandId == id &&  y.Brand.BrandStatus == true).ToListAsync();
 
-        //    //return View(categoryBrandViewModel);
-        //    //List<CategoryBrand> categoryBrands = await _context.CategoryBrands.OrderBy(cb => cb.Brand).Where(y => y.Category.CategoryStatus == true && y.CategoryId == id).ToListAsync();
-        //    List<Brand> brands = new List<Brand>();
-        //    //foreach (CategoryBrand categoryBrand in categoryBrands)  //viewmodel yapıp categorybrandi viewa yollayıp orada tekrar foreach ile içinde geziceğimiz için performans arttırmak için burada yani viewa yollamadan ayrılıp gönderiliyor
-        //    //{
-        //    //    brands.Add(categoryBrand.Brand);
-        //    //}
-
-        //    //return View(await _context.Brands.OrderBy(a => a.BrandId).ToListAsync());
-        //    return View(brands);
-        //}
     }
 }
 
