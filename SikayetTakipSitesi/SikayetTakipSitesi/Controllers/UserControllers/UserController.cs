@@ -28,26 +28,27 @@ namespace SikayetTakipSitesi.Controllers.UserControllers
 
         //BİR DE USERA GİRDİKTEN SONRA YORUMLARA BASILMIŞSA TEKRAR USERA BASINCA HATA VERİYOR 
 
-        [HttpPost]
-        public async Task<IActionResult> Index(int id, int sayfa = 1)
+        [HttpGet("{type}/{id}")]
+        public async Task<IActionResult> Index(string type, int id, int sayfa = 1)
         {
-            TempData["userId"] = Convert.ToInt32(id);
-
-            return View( await ListComplaints(id, sayfa));
-        }
-
-        [HttpGet("{type}")]
-        public async Task<IActionResult> Index(string type, int sayfa = 1)
-        {
-            int id = Convert.ToInt32(TempData["userId"]);
-            TempData["userId"] = Convert.ToInt32(id);
-            if (type == "1") //type bir ise şikayet, iki ise yorum
+            if (type == "1" || type == "0") //type bir ise şikayet, iki ise yorum
                 return View(await ListComplaints(id, sayfa));
 
             return View(await ListComments(id, sayfa));
-
         }
-        private async  Task<UserViewModel> ListComplaints(int id,int sayfa)
+
+        //[HttpPost]
+        //public async Task<IActionResult> Index(string type, int sayfa = 1)
+        //{
+        //    int id = Convert.ToInt32(TempData["userId"]);
+        //    TempData["userId"] = Convert.ToInt32(id);          
+        //    if (type == "1") //type bir ise şikayet, iki ise yorum
+        //        return View(await ListComplaints(id, sayfa));
+
+        //    return View(await ListComments(id, sayfa));
+
+        //}
+        private async Task<UserViewModel> ListComplaints(int id, int sayfa)
         {
             ViewBag.kontrol = "sikayet";
             Member member = _context.Members.Find(id);
@@ -73,6 +74,6 @@ namespace SikayetTakipSitesi.Controllers.UserControllers
 
 
 
-    
+
     }
 }

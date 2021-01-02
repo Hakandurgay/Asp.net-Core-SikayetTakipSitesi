@@ -1,8 +1,6 @@
 ﻿@using SikayetTakipSitesi.Models
 
-@using X.PagedList.Mvc.Core
-
-@model X.PagedList.IPagedList<Brand>
+@model List<Brand>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -34,20 +32,6 @@
     </div>
 
 }
-
-<div class="row mt-5">
-    <div class="col">
-        <div class="block-27">
-            <ul>
-
-                <li>
-                    @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }))
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</div>
 
 
 @section SayfaBilgisi{

@@ -8,7 +8,7 @@
 
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
+    int? userid = Context.Session.GetInt32("MEMBER_ID");
 }
 
 <div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge;border-color:forestgreen; background-color:#f2f2f2; width: 600px">
@@ -96,9 +96,9 @@ else
     <div class="sidebar-box ftco-animate">
         <div class="categories">
             <form method="get" asp-action="Index" asp-controller="User">
-                <li><button type="submit" class="btn btn-primary2 font-weight-light " asp-route-type="1"> <span class="ion-ios-arrow-forward">@Localizer["sikayetler_k"]</span></button></li>
+                <<button type="submit" class="btn btn-primary2 font-weight-light " asp-route-type="1" asp-route-id="@userid"> <span class="ion-ios-arrow-forward">@Localizer["sikayetler_k"]</span></button></li>
 
-                <li><button type="submit" class="btn btn-primary2 font-weight-light " asp-route-type="2"><span class="ion-ios-arrow-forward">@Localizer["yorumlar_k"]</span></button></li>
+                 <button type="submit" class="btn btn-primary2 font-weight-light " asp-route-type="2" asp-route-id="@userid"><span class="ion-ios-arrow-forward">@Localizer["yorumlar_k"]</span></button></li>
             </form>
         </div>
     </div>

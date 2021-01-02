@@ -18,9 +18,9 @@
                     <img src="images/image_1.jpg" alt="" class="img-fluid">
                 </p>
 
-                <h3 class="mb-3"><font color="black"><b> @Model.Complaint.ComplaintTitle </b></font></h3>
+                <h3 class="mb-3"><font color="black"><b>@Model.Complaint.FK_BRAND_ID.BrandName  </b></font></h3>
 
-                <h5 class="mb-3"><b>@Model.Complaint.FK_BRAND_ID.BrandName</b></h5>
+                <h5 class="mb-3"><b>  @Model.Complaint.ComplaintTitle</b></h5>
                 <p><b>@Localizer["icerik"]</b></p>
                 <div style="background-color:white; background-size:50px">
 
@@ -41,7 +41,7 @@
                             <div class="comment-body" style="background-color:#f2f2f2 ; border-style: ridge ; border-color: forestgreen ; border-width:3px">
                                 <div class="comment-body" style="background-color:#f2f2f2 ">
                                     <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@comment.MemberId">
-                                        <button type="submit" class="btn btn-primary2 font-weight-light"><h3><b>@comment.Member.MemberName @comment.Member.MemberLastName</b></h3> </button>
+                                        <button type="submit" class="btn btn-primary2 font-weight-light"><h5>@comment.Member.MemberName @comment.Member.MemberLastName</h5> </button>
                                     </form>
                                     <p><b>@comment.CommentContent </b></p>
                                 </div>
@@ -79,7 +79,7 @@
 
             <form method="post" asp-action="AddComment" asp-controller="ComplaintDetail" asp-route-userId="@userid">
 
-                @Html.LabelFor(x => x.Comment.CommentContent)
+                <label>Şikayete Yorum Ekle</label>
                 @Html.TextBoxFor(x => x.Comment.CommentContent, new { @class = "form-control" })
                 <input asp-for="@Model.Comment.ComplaintId " value="@Model.Complaint.PK_COMPLAINT_ID" class="form-control" type="hidden" />
                 <br />
@@ -99,9 +99,11 @@
 
 
 
-@section Kategoriler{
+@section Kategoriler
+{
     <h2>  @Localizer["kullanici"]</h2>
-    <div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge; background-color:white; width: 400px ; height: 200px; position: absolute; right: 5px; ">
+    @*<div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge; border-color:forestgreen;background-color:#f2f2f2; width: 400px ; height: 200px; position: absolute; right: 5px;">
+
         <div class="img" style="background-size:200px ;width:200px; background-color:white ; height: 190px">
             <img src="@Model.Complaint.FK_MEMBER_ID.MemberPhoto" alt="Image placeholder" class="img-fluid mb-4">
         </div>
@@ -110,7 +112,28 @@
                 <button type="submit" class="btn btn-primary2 font-weight-light"> <h3><b>@Model.Complaint.FK_MEMBER_ID.MemberName @Model.Complaint.FK_MEMBER_ID.MemberLastName</b> </h3> </button>
             </form>
         </div>
+    </div>*@
+
+<div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge; border-color:forestgreen;background-color:#f2f2f2; width: 400px ; height: 200px; position: absolute; right: 5px;">
+    <div class="img" style=" background-image: url(@Model.Complaint.FK_MEMBER_ID.MemberPhoto);
+        background-size: 200px;
+        width: 200px;
+        background-color: white;
+        height: 190px"></div>
+
+    <form method="get" asp-action="Index" asp-controller="User" asp-route-id="@Model.Complaint.FK_MEMBER_ID.PK_MEMBER_ID"  asp-route-type="0">
+        <div class="text pl-md-5">
+
+         
+                <span class="cat">
+
+                    <button type="submit" class="btn btn-primary2" > <h3><b>@Model.Complaint.FK_MEMBER_ID.MemberName @Model.Complaint.FK_MEMBER_ID.MemberLastName</b> </h3> </button>
+
+                </span>
+          
+        </div>
+    </form>
     </div>
 
-
+    
 }

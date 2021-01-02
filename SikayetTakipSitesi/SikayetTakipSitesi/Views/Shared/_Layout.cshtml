@@ -69,11 +69,11 @@
                     <!--     <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
                     <li class="nav-item"><a href="/Complaint/Index/" class="nav-link">@Localizer["sikayet_et"]</a></li>
                 </ul>
-                         <a class="btn btn-secondary" asp-controller="Login" asp-action="Logout">@Localizer["cıkıs"]</a>
-            <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@userid">
-                <button type="submit" class="btn btn-primary2 font-weight-light "> @userName  @userSurName </button>
-            </form>
-        </div>
+                <a class="btn btn-secondary" asp-controller="Login" asp-action="Logout">@Localizer["cıkıs"]</a>
+                <form method="get" asp-action="Index" asp-controller="User" asp-route-id="@userid" asp-route-type="0">
+                    <button type="submit" class="btn btn-primary2 font-weight-light "> @userName  @userSurName </button>
+                </form>
+            </div>
     </nav>
 
         <section class="hero-wrap hero-wrap-2" style="background-image: url('../../accounting-master/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
