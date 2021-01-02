@@ -101,27 +101,10 @@
 
 @section Kategoriler
 {
-    <h2>  @Localizer["kullanici"]</h2>
-    @*<div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge; border-color:forestgreen;background-color:#f2f2f2; width: 400px ; height: 200px; position: absolute; right: 5px;">
-
-        <div class="img" style="background-size:200px ;width:200px; background-color:white ; height: 190px">
-            <img src="@Model.Complaint.FK_MEMBER_ID.MemberPhoto" alt="Image placeholder" class="img-fluid mb-4">
-        </div>
-        <div class="text pl-md-5">
-            <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@Model.Complaint.FK_MEMBER_ID.PK_MEMBER_ID">
-                <button type="submit" class="btn btn-primary2 font-weight-light"> <h3><b>@Model.Complaint.FK_MEMBER_ID.MemberName @Model.Complaint.FK_MEMBER_ID.MemberLastName</b> </h3> </button>
-            </form>
-        </div>
-    </div>*@
+    <h4>@Localizer["kullanici"]</h4>
 
 <div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge; border-color:forestgreen;background-color:#f2f2f2; width: 400px ; height: 200px; position: absolute; right: 5px;">
-    <div class="img" style=" background-image: url(@Model.Complaint.FK_MEMBER_ID.MemberPhoto);
-        background-size: 200px;
-        width: 200px;
-        background-color: white;
-        height: 190px"></div>
-
-    <form method="get" asp-action="Index" asp-controller="User" asp-route-id="@Model.Complaint.FK_MEMBER_ID.PK_MEMBER_ID"  asp-route-type="0">
+       <form method="get" asp-action="Index" asp-controller="User" asp-route-id="@Model.Complaint.FK_MEMBER_ID.PK_MEMBER_ID"  asp-route-type="0">
         <div class="text pl-md-5">
 
          

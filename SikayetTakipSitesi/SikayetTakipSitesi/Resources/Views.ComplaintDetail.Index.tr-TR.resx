@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="gelen" xml:space="preserve">
-    <value>Şikayete Gelen Yorumlar</value>
+    <value>Şikayetin Detayları</value>
   </data>
   <data name="icerik" xml:space="preserve">
-    <value>Şikayet İçeriği</value>
+    <value>Şikayetin İçeriği</value>
   </data>
   <data name="kaydet" xml:space="preserve">
     <value>Kaydet</value>
   </data>
   <data name="kullanici" xml:space="preserve">
-    <value>Şikayette Bulunan Kullanıcı</value>
+    <value>Şikayet Eden Kullanıcı</value>
   </data>
   <data name="yorumlar" xml:space="preserve">
     <value>Yorumlar</value>

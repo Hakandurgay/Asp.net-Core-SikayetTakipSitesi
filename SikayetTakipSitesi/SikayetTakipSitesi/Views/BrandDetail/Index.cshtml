@@ -19,7 +19,7 @@
                     <form method="get" asp-action="Index" asp-controller="ComplaintDetail" asp-route-id="@complaint.PK_COMPLAINT_ID">
                        <a>@complaint.ComplaintContent</a>
                         <br />
-                        <button type="submit" style=" border-style:hidden ; background-color:lightgreen ">Şikayete Gelen Yorumlar </button>
+                        <button type="submit" style=" border-style:hidden ; background-color:lightgreen ">@Localizer["gelen"] </button>
                     </form>
                 </div>
             </div>

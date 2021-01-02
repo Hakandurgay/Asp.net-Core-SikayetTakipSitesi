@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="gelen" xml:space="preserve">
-    <value>Comments to the Complaint</value>
+    <value>Details of the Complaint</value>
   </data>
   <data name="icerik" xml:space="preserve">
     <value>Content of the Complaint</value>
@@ -128,9 +128,6 @@
   </data>
   <data name="kullanici" xml:space="preserve">
     <value>Complainant User</value>
-  </data>
-  <data name="yazi" xml:space="preserve">
-    <value>You Can Manage Categories, Brands, Complaints and User Comments From This Panel</value>
   </data>
   <data name="yorumlar" xml:space="preserve">
     <value>Comments</value>

@@ -38,7 +38,7 @@
                             <div class="col-md-6 d-flex align-items-center">
                                 <p class="mb-0 phone pl-md-2">
                                     <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a>
-                                    <a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a>
+                                    <a href="#"><span class="fa fa-paper-plane mr-1"></span> sikayetetl@email.com</a>
                                 </p>
                             </div>
                             <div class="col-md-6 d-flex justify-content-md-end">
@@ -66,15 +66,13 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item"><a href="/Home/Index/" class="nav-link">@Localizer["ana_sayfa"]</a></li>
-                    <!-- <li class="nav-item"><a href="about.html" class="nav-link">@Localizer["sikayetler"]</a></li> -->
-                    <!--  <li class="nav-item"><a href="services.html" class="nav-link">Markalar</a></li> -->
                     <li class="nav-item"><a href="/CategoryBrand/Index/" class="nav-link">@Localizer["markalar"]</a></li>
-                    <!--     <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
+
                     <li class="nav-item"><a href="/Complaint/Index/" class="nav-link">@Localizer["sikayet_et"]</a></li>
                 </ul>
             </div>
             <a class="btn btn-secondary" asp-controller="Login" asp-action="Logout">@Localizer["cıkıs"]</a>
-            <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@userid">
+            <form method="get" asp-action="Index" asp-controller="User" asp-route-id="@userid" asp-route-type="0">
                 <button type="submit" class="btn btn-primary2 font-weight-light "> @userName  @userSurName </button>
             </form>
         </div>
@@ -272,9 +270,9 @@
                 </div>
                 <div class="col-lg-6 pl-lg-5">
                     <div class="heading-section mb-5 mt-5 mt-lg-0">
-                        @*<span class="subheading">FAQs</span>*@
+                     
                         <h2 class="mb-3">@Localizer["yazi13"]</h2>
-                        @*<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>*@
+                     
                     </div>
                     <div id="accordion" class="myaccordion w-100" aria-multiselectable="true">
                         <div class="card">
@@ -291,7 +289,7 @@
                                     @foreach (var complaint in Model.BrandNames)
                                     {
                                         <div class="cases-wrap d-md-flex align-items-center" style="size:50px">
-                                            @*<div class="img" style="background-image:url(@brand.BrandPhoto ); background-size: 50px;"></div>*@
+                                          
                                             <div class="text pl-md-5">
                                                 <a> <span class="cat">@complaint </span></a>
 
