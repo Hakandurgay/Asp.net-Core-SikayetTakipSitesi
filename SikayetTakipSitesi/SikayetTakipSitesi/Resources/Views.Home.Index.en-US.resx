@@ -118,24 +118,81 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ana_sayfa" xml:space="preserve">
-    <value>Home Page</value>
+    <value>Home page</value>
   </data>
-  <data name="cikis" xml:space="preserve">
+  <data name="cıkıs" xml:space="preserve">
     <value>Log Out</value>
   </data>
-  <data name="islemler" xml:space="preserve">
-    <value>Category Operations</value>
+  <data name="hakkımızda" xml:space="preserve">
+    <value>About Us</value>
   </data>
-  <data name="marka" xml:space="preserve">
-    <value>Add Brand</value>
+  <data name="markalar" xml:space="preserve">
+    <value>Brands</value>
   </data>
-  <data name="onay" xml:space="preserve">
-    <value>Confirm Complaint</value>
+  <data name="sikayetler" xml:space="preserve">
+    <value>Complaints</value>
   </data>
-  <data name="yazi" xml:space="preserve">
-    <value>You Can Manage Categories, Brands, Complaints and User Comments From This Panel</value>
+  <data name="sikayet_et" xml:space="preserve">
+    <value>Complain</value>
   </data>
-  <data name="yorum" xml:space="preserve">
-    <value>Confirm Comment</value>
+  <data name="sikayet_yaz" xml:space="preserve">
+    <value>Write a Complaint</value>
+  </data>
+  <data name="yazi1" xml:space="preserve">
+    <value>The only address where your complaint is valuable</value>
+  </data>
+  <data name="yazi10" xml:space="preserve">
+    <value>Informing the Brand</value>
+  </data>
+  <data name="yazi11" xml:space="preserve">
+    <value>What do brands say?</value>
+  </data>
+  <data name="yazi12" xml:space="preserve">
+    <value>Brands with the most complaints</value>
+  </data>
+  <data name="yazi13" xml:space="preserve">
+    <value>Most Spoken</value>
+  </data>
+  <data name="yazi14" xml:space="preserve">
+    <value>How Does the Complaint Process Work?</value>
+  </data>
+  <data name="yazi2" xml:space="preserve">
+    <value>Make your voice heard</value>
+  </data>
+  <data name="yazi3" xml:space="preserve">
+    <value>Leave a complaint</value>
+  </data>
+  <data name="yazi4-1" xml:space="preserve">
+    <value>We serve with a total of</value>
+  </data>
+  <data name="yazi4-2" xml:space="preserve">
+    <value>brands.</value>
+  </data>
+  <data name="yazi5-1" xml:space="preserve">
+    <value>A total of</value>
+  </data>
+  <data name="yazi5-2" xml:space="preserve">
+    <value>users became members of the system</value>
+  </data>
+  <data name="yazi6-1" xml:space="preserve">
+    <value>A total of</value>
+  </data>
+  <data name="yazi6-2" xml:space="preserve">
+    <value>complaints from brands</value>
+  </data>
+  <data name="yazi7-1" xml:space="preserve">
+    <value>A total of</value>
+  </data>
+  <data name="yazi7-2" xml:space="preserve">
+    <value>comments have been made to complaints so far.</value>
+  </data>
+  <data name="yazi8" xml:space="preserve">
+    <value>Complaint Control</value>
+  </data>
+  <data name="yazi9" xml:space="preserve">
+    <value>Controlling Content</value>
+  </data>
+  <data name="yeni" xml:space="preserve">
+    <value>New Complaint</value>
   </data>
 </root>

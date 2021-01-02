@@ -117,25 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ana_sayfa" xml:space="preserve">
-    <value>Home Page</value>
+  <data name="baslık" xml:space="preserve">
+    <value>Title</value>
   </data>
-  <data name="cikis" xml:space="preserve">
-    <value>Log Out</value>
+  <data name="bilgi" xml:space="preserve">
+    <value>Complaint Operations</value>
   </data>
-  <data name="islemler" xml:space="preserve">
-    <value>Category Operations</value>
+  <data name="icerik" xml:space="preserve">
+    <value>Content</value>
   </data>
   <data name="marka" xml:space="preserve">
-    <value>Add Brand</value>
+    <value>Brand Name</value>
   </data>
-  <data name="onay" xml:space="preserve">
-    <value>Confirm Complaint</value>
+  <data name="markalar" xml:space="preserve">
+    <value>Brands</value>
   </data>
-  <data name="yazi" xml:space="preserve">
-    <value>You Can Manage Categories, Brands, Complaints and User Comments From This Panel</value>
+  <data name="onayla" xml:space="preserve">
+    <value>Confirm</value>
   </data>
-  <data name="yorum" xml:space="preserve">
-    <value>Confirm Comment</value>
+  <data name="sikayet" xml:space="preserve">
+    <value>Complainant</value>
+  </data>
+  <data name="sil" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="tumu" xml:space="preserve">
+    <value>ALL</value>
   </data>
 </root>

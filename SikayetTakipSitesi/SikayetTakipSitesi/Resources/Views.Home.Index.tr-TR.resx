@@ -118,24 +118,81 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ana_sayfa" xml:space="preserve">
-    <value>Home Page</value>
+    <value>Ana Sayfa</value>
   </data>
-  <data name="cikis" xml:space="preserve">
-    <value>Log Out</value>
+  <data name="cıkıs" xml:space="preserve">
+    <value>Çıkış Yap</value>
   </data>
-  <data name="islemler" xml:space="preserve">
-    <value>Category Operations</value>
+  <data name="hakkımızda" xml:space="preserve">
+    <value>Hakkımızda</value>
   </data>
-  <data name="marka" xml:space="preserve">
-    <value>Add Brand</value>
+  <data name="markalar" xml:space="preserve">
+    <value>Markalar</value>
   </data>
-  <data name="onay" xml:space="preserve">
-    <value>Confirm Complaint</value>
+  <data name="sikayetler" xml:space="preserve">
+    <value>Şikayetler</value>
   </data>
-  <data name="yazi" xml:space="preserve">
-    <value>You Can Manage Categories, Brands, Complaints and User Comments From This Panel</value>
+  <data name="sikayet_et" xml:space="preserve">
+    <value>Şikayet Et</value>
   </data>
-  <data name="yorum" xml:space="preserve">
-    <value>Confirm Comment</value>
+  <data name="sikayet_yaz" xml:space="preserve">
+    <value>Şikayet Yaz</value>
+  </data>
+  <data name="yazi1" xml:space="preserve">
+    <value>Şikayetinizin kıymetli olduğu tek adres</value>
+  </data>
+  <data name="yazi10" xml:space="preserve">
+    <value>Markanın Bilgilendirilmesi</value>
+  </data>
+  <data name="yazi11" xml:space="preserve">
+    <value>Markalar ne diyor?</value>
+  </data>
+  <data name="yazi12" xml:space="preserve">
+    <value>En çok şikayet alan markalar</value>
+  </data>
+  <data name="yazi13" xml:space="preserve">
+    <value>Çok Konuşulanlar</value>
+  </data>
+  <data name="yazi14" xml:space="preserve">
+    <value>Şikayet Süreci Nasıl İşliyor?</value>
+  </data>
+  <data name="yazi2" xml:space="preserve">
+    <value>Sesinizi duyurun</value>
+  </data>
+  <data name="yazi3" xml:space="preserve">
+    <value>Bir şikayet bırak</value>
+  </data>
+  <data name="yazi4-1" xml:space="preserve">
+    <value>Toplam</value>
+  </data>
+  <data name="yazi4-2" xml:space="preserve">
+    <value>marka ile hizmet vermekteyiz.</value>
+  </data>
+  <data name="yazi5-1" xml:space="preserve">
+    <value>Sisteme Toplam</value>
+  </data>
+  <data name="yazi5-2" xml:space="preserve">
+    <value>Kullanıcı Kayıt Oldu.</value>
+  </data>
+  <data name="yazi6-1" xml:space="preserve">
+    <value>Markalara Toplam</value>
+  </data>
+  <data name="yazi6-2" xml:space="preserve">
+    <value>Adet Şikayet Geldi</value>
+  </data>
+  <data name="yazi7-1" xml:space="preserve">
+    <value>Şu Ana Kadar Şikayetlere</value>
+  </data>
+  <data name="yazi7-2" xml:space="preserve">
+    <value>Adet Yorum Yapıldı</value>
+  </data>
+  <data name="yazi8" xml:space="preserve">
+    <value>Şikayetin Denetlenmesi</value>
+  </data>
+  <data name="yazi9" xml:space="preserve">
+    <value>İçeriğin Denetlenmesi</value>
+  </data>
+  <data name="yeni" xml:space="preserve">
+    <value>Yeni Şikayet</value>
   </data>
 </root>

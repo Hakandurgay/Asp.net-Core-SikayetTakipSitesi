@@ -17,13 +17,12 @@ namespace SikayetTakipSitesi.Controllers
 
         private readonly SikayetDbContext _context;
         private readonly IStringLocalizer<LoginController> _localizer;
-        private readonly IStringLocalizer<SharedResources> _sharedLocalizer;
-
+       
         public LoginController(SikayetDbContext context, IStringLocalizer<LoginController> localizer, IStringLocalizer<SharedResources> sharedLocalizer)
         {
             _context = context;
             _localizer = localizer;
-            _sharedLocalizer = sharedLocalizer;
+       
         }
 
         [HttpPost]

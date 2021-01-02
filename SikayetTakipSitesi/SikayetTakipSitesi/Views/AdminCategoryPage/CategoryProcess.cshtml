@@ -8,15 +8,15 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Kategori İşlemleri</h1>
+<h1>@Localizer["bilgi"]</h1>
 <br />
 
 
 <table class="table table-bordered" style="margin-top: 20px;  border-style:ridge ; border-color:forestgreen ; border-width:5px">
     <tr style=" padding-top: 12px; padding-bottom: 12px; text-align: left; background-color: #4CAF50; color: white;">
-        <th>Kategori Ad</th>
-        <th>Güncelle</th>
-        <th>Sil</th>
+        <th>@Localizer["ad"]</th>
+        <th>@Localizer["guncelle"]</th>
+        <th>@Localizer["sil"]</th>
 
     </tr>
     @foreach (var category in Model)
@@ -26,19 +26,19 @@
             <td>@category.CategoryName </td>
             <td>
 
-                <a href="/AdminCategoryPage/GetCategory/@category.PK_CATEGORY_ID" class="btn btn-warning">Güncelle</a>
+                <a href="/AdminCategoryPage/GetCategory/@category.PK_CATEGORY_ID" class="btn btn-warning">@Localizer["guncelle"]</a>
 
             </td>
             <td>
 
-                <a href="/AdminCategoryPage/DeleteCategory/@category.PK_CATEGORY_ID" class="btn btn-danger">Sil</a>
+                <a href="/AdminCategoryPage/DeleteCategory/@category.PK_CATEGORY_ID" class="btn btn-danger">@Localizer["sil"]</a>
             </td>
         </tr>
     }
 
 </table>
 <form method="get" asp-action="AddCategory" asp-controller="AdminCategoryPage">
-    <button type="submit" class="btn btn-primary">Kategori Ekle</button>
+    <button type="submit" class="btn btn-primary">@Localizer["ekle"]</button>
 </form>
 
 

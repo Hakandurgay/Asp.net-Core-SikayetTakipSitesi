@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<Category>
 <div class="sidebar-box ftco-animate">
     <div class="categories">
-        <h3>Kategoriler</h3>
+        <h3>@Localizer["kategori"]</h3>
         <form method="get" asp-action="Index" asp-controller="CategoryBrand">
-            <li style="margin-bottom: 10px; border-bottom:solid; border-width:1px;"><button type="submit" class="btn btn-primary2 font-weight-light"> <span class="ion-ios-arrow-forward">TÜMÜ</span></button></li>
+            <li style="margin-bottom: 10px; border-bottom:solid; border-width:1px;"><button type="submit" class="btn btn-primary2 font-weight-light"> <span class="ion-ios-arrow-forward">@Localizer["tumu"]</span></button></li>
         </form>
         @foreach (var category in Model)
         {

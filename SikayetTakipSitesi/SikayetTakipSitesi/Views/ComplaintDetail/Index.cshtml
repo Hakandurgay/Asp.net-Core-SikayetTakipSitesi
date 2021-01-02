@@ -21,7 +21,7 @@
                 <h3 class="mb-3"><font color="black"><b> @Model.Complaint.ComplaintTitle </b></font></h3>
 
                 <h5 class="mb-3"><b>@Model.Complaint.FK_BRAND_ID.BrandName</b></h5>
-                <p><b>Şikayet İçeriği</b></p>
+                <p><b>@Localizer["icerik"]</b></p>
                 <div style="background-color:white; background-size:50px">
 
                     <p><font color="black"><b>@Model.Complaint.ComplaintContent</b></font></p>
@@ -29,7 +29,7 @@
             </div>
 
 
-            <h3 class="mb-5"><b>Yorumlar</b></h3>
+            <h3 class="mb-5"><b>@Localizer["yorumlar"]</b></h3>
             @foreach (var comment in Model.Comments)
             {
                 <div class="pt-5 mt-5">
@@ -84,7 +84,7 @@
                 <input asp-for="@Model.Comment.ComplaintId " value="@Model.Complaint.PK_COMPLAINT_ID" class="form-control" type="hidden" />
                 <br />
 
-                <button class="btn btn-info">Kaydet</button>
+                <button class="btn btn-info">@Localizer["kaydet"]</button>
 
             </form>
         </div>
@@ -92,15 +92,15 @@
     </div>
 </div>
 
-@section SayfaBilgisi{ 
-   Şikayete Gelen Yorumlar
+@section SayfaBilgisi{
+    @Localizer["gelen"]
 }
 
 
 
 
 @section Kategoriler{
-    <h2> Şikayette Bulunan Kullanıcı</h2>
+    <h2>  @Localizer["kullanici"]</h2>
     <div class="cases-wrap d-md-flex align-items-center" style="border-style:ridge; background-color:white; width: 400px ; height: 200px; position: absolute; right: 5px; ">
         <div class="img" style="background-size:200px ;width:200px; background-color:white ; height: 190px">
             <img src="@Model.Complaint.FK_MEMBER_ID.MemberPhoto" alt="Image placeholder" class="img-fluid mb-4">

@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Message" xml:space="preserve">
-    <value>İletişim sayfanız</value>
+  <data name="ad" xml:space="preserve">
+    <value>Kategori Ad</value>
+  </data>
+  <data name="bilgi" xml:space="preserve">
+    <value>Kategori İşlemleri</value>
+  </data>
+  <data name="ekle" xml:space="preserve">
+    <value>Kategori Ekle</value>
+  </data>
+  <data name="guncelle" xml:space="preserve">
+    <value>Güncelle</value>
+  </data>
+  <data name="sil" xml:space="preserve">
+    <value>Sil</value>
   </data>
 </root>

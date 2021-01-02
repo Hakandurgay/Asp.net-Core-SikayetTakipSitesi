@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Message" xml:space="preserve">
-    <value>Your contact page</value>
+  <data name="baslık" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="bilgi" xml:space="preserve">
+    <value>Comment Operations</value>
+  </data>
+  <data name="icerik" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Brand Name</value>
+  </data>
+  <data name="onayla" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="sil" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="yorum" xml:space="preserve">
+    <value>Commenting</value>
   </data>
 </root>

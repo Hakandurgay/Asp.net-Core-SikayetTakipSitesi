@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1> Markaları Güncelle</h1><br />
+<h1>@Localizer[""]</h1><br />
 
 <div class="contact-wrap w-100 p-md-5 p-4" style="background-color:darkseagreen ; border-style:ridge ; border-color:forestgreen ; border-width:5px">
     <div style="background-color:darkseagreen">
@@ -18,7 +18,7 @@
                 @Html.TextBoxFor(x => x.BrandPhoto, new { @class = "form-control" })
                 @Html.HiddenFor(x => x.PK_BRAND_ID)
             </div>
-            <button class="btn btn-warning">Güncelle</button>
+            <button class="btn btn-warning">@Localizer["guncelle"]</button>
         }
 
 </div>

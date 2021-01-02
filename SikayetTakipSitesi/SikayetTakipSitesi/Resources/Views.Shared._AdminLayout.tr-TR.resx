@@ -132,6 +132,9 @@
   <data name="onay" xml:space="preserve">
     <value>Şikayet Onayla</value>
   </data>
+  <data name="yazi" xml:space="preserve">
+    <value>Kategorileri, Markaları, Şikayetleri ve Kullanıcı Yorumlarını Bu Panelden Yönetebilirsiniz</value>
+  </data>
   <data name="yorum" xml:space="preserve">
     <value>Yorum Onayla</value>
   </data>

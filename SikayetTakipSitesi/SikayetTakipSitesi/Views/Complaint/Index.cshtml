@@ -21,7 +21,7 @@
                     @if (ViewBag.kontrol == "get")
                     {
                         <div class="form-group">
-                            <label for="RF_ROLE_ID_I">Markalar:</label><br />
+                            <label for="RF_ROLE_ID_I">@Localizer["markalar"]:</label><br />
                             @Html.DropDownListFor(model => model.Complaint.BrandId, new SelectList(ViewBag.markaAd, "PK_BRAND_ID", "BrandName"), new { @id = "RF_ROLE_ID_I", style = "width: 300px ; height: 50px" })
                         </div>
                         <input asp-for="Complaint.MemberId " value="@userid" class="form-control" type="hidden" />
@@ -43,7 +43,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="control-label">Şikayet Başlığı</label>
+                    <label class="control-label">@Localizer["baslık"]</label>
                     <input asp-for="Complaint.ComplaintTitle" class="form-control" />
                     <span asp-validation-for="Complaint.ComplaintTitle" class="text-danger"></span>
                     @*@Html.DropDownListFor(model => model. , new SelectList(ViewBag.roleAd, "SQ_ROLE_ID", "CH_ROLE_NAME"), new { @id = "RF_ROLE_ID_I" })*@
@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <label asp-for="Complaint.ComplaintContent" class="control-label">Şikayetiniz: </label>
+                    <label asp-for="Complaint.ComplaintContent" class="control-label">@Localizer["sikayet"]: </label>
                     <input asp-for="Complaint.ComplaintContent" class="form-control" />
                     <span asp-validation-for="Complaint.ComplaintContent" class="text-danger"></span>
                 </div>
@@ -61,7 +61,7 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="submit" value="Gonder" class="btn btn-primary" />
+                    <input type="submit" value="@Localizer["btn"]" class="btn btn-primary" />
                     <div class="submitting"></div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
 
 
 @section SayfaBilgisi{
-    Şikayet Oluştur
+    @Localizer["olustur"]
 }
 @section Kategoriler{
 

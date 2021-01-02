@@ -10,7 +10,7 @@
 
 
 
-<h1>MARKALAR</h1>
+<h1>@Localizer["markalar"]</h1>
 
 
 @foreach (var brand in Model)
@@ -23,11 +23,11 @@
 
             <p>
                 <form method="post" asp-action="Index" asp-controller="Complaint" asp-route-id="@brand.PK_BRAND_ID ">
-                    <button type="submit" class="btn btn-primary">Şikayet Yaz </button>
+                    <button type="submit" class="btn btn-primary">@Localizer["sikayet"] </button>
                 </form>
                 <br />
                 <form method="get" asp-action="Index" asp-controller="BrandDetail" asp-route-id="@brand.PK_BRAND_ID ">
-                    <button type="submit" class="btn btn-primary">Markaya Git</button>
+                    <button type="submit" class="btn btn-primary">@Localizer["marka"]</button>
                 </form>
             </p>
         </div>
@@ -51,7 +51,7 @@
 
 
 @section SayfaBilgisi{
-    Markalar
+    @Localizer["markalar2"]
 }
 @section Kategoriler{
 

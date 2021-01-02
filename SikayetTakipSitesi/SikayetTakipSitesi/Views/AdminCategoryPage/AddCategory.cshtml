@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Kategori Ekle</h1><br />
+<h1>@Localizer["marka"]</h1><br />
 
 <div class="contact-wrap w-100 p-md-5 p-4" style="background-color:darkseagreen ; border-style:ridge ; border-color:forestgreen ; border-width:5px">
     <div style="background-color:darkseagreen">
@@ -15,7 +15,7 @@
             @Html.LabelFor(x => x.CategoryName)
             @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
             <br />
-            <button class="btn btn-info">Kaydet</button>
+            <button class="btn btn-info">@Localizer["kaydet"]</button>
         </form>
         </div>
     </div>

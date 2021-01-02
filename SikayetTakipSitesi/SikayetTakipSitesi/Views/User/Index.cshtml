@@ -22,7 +22,7 @@
 @if (ViewBag.kontrol == "sikayet")
 {
 
-    <h2><b>ŞİKAYETLER</b></h2>
+    <h2><b>@Localizer["sikayetler_b"]</b></h2>
     <br />
     @foreach (var complaint in Model.Complaints)
     {
@@ -55,7 +55,7 @@
 }
 else
 {
-    <h2><b>YORUMLAR</b></h2>
+    <h2><b>@Localizer["yorumlar_b"]</b></h2>
     <br />
     @foreach (var comment in Model.Comments)
     {
@@ -89,16 +89,16 @@ else
 
 
 @section SayfaBilgisi{
-    Kullanıcı Sayfası
+    @Localizer["sayfa"]
 }
 
 @section Kategoriler{
     <div class="sidebar-box ftco-animate">
         <div class="categories">
             <form method="get" asp-action="Index" asp-controller="User">
-                <li><button type="submit" class="btn btn-primary2 font-weight-light " asp-route-type="1"> <span class="ion-ios-arrow-forward">Şikayetler</span></button></li>
+                <li><button type="submit" class="btn btn-primary2 font-weight-light " asp-route-type="1"> <span class="ion-ios-arrow-forward">@Localizer["sikayetler_k"]</span></button></li>
 
-                <li><button type="submit" class="btn btn-primary2 font-weight-light " asp-route-type="2"><span class="ion-ios-arrow-forward">Yorumlar</span></button></li>
+                <li><button type="submit" class="btn btn-primary2 font-weight-light " asp-route-type="2"><span class="ion-ios-arrow-forward">@Localizer["yorumlar_k"]</span></button></li>
             </form>
         </div>
     </div>

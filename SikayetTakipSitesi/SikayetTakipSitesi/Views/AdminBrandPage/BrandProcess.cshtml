@@ -9,7 +9,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Marka İşlemleri</h1>
+<h1>@Localizer["bilgi"]</h1>
 <br />
 @foreach (var brand in Model)
 {
@@ -21,10 +21,10 @@
                 <a> <span class="cat">@brand.BrandName</span></a>
 
                 <p>
-                    <a href="/AdminBrandPage/GetBrand/@brand.PK_BRAND_ID" class="btn btn-warning">Güncelle</a>
+                    <a href="/AdminBrandPage/GetBrand/@brand.PK_BRAND_ID" class="btn btn-warning">@Localizer["guncelle"]</a>
                     <br />
                     <br />
-                    <a href="/AdminBrandPage/DeleteBrand/@brand.PK_BRAND_ID" class="btn btn-danger">Sil</a>
+                    <a href="/AdminBrandPage/DeleteBrand/@brand.PK_BRAND_ID" class="btn btn-danger">@Localizer["sil"]</a>
 
                 </p>
             </div>
@@ -50,7 +50,7 @@
 
 
 <form method="get" asp-action="AddBrand" asp-controller="AdminBrandPage">
-    <button type="submit" class="btn btn-primary">Marka Ekle</button>
+    <button type="submit" class="btn btn-primary">@Localizer["ekle"]</button>
 </form>
 
 @section Markalar{

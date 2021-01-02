@@ -9,17 +9,17 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Yorum işlemleri</h1>
+<h1>@Localizer["bilgi"]</h1>
 <br />
 
 <table class="table table-bordered" style="margin-top: 20px;  border-style:ridge ; border-color:forestgreen ; border-width:5px">
     <tr style=" padding-top: 12px; padding-bottom: 12px; text-align: left; background-color: #4CAF50; color: white;">
-        <th>Marka Adı</th>
-        <th>Yorumu oluşturan</th>
-        <th>Başlık</th>
-        <th>İçerik</th>
-        <th>Onayla</th>
-        <th>Sil</th>
+        <th>@Localizer["name"]</th>
+        <th>@Localizer["yorum"]</th>
+        <th>@Localizer["baslık"]</th>
+        <th>@Localizer["icerik"]</th>
+        <th>@Localizer["onayla"]</th>
+        <th>@Localizer["sil"]</th>
 
     </tr>
 
@@ -49,12 +49,12 @@
             </td>
 
             <td>
-                <a href="/AdminCommentPage/ComfirmComment_ConfirmButton/@comment.PK_COMMENT_ID" class="btn btn-primary">Onayla</a>
+                <a href="/AdminCommentPage/ComfirmComment_ConfirmButton/@comment.PK_COMMENT_ID" class="btn btn-primary">@Localizer["onayla"]</a>
 
             </td>
 
             <td>
-                <a href="/AdminCommentPage/ComfirmComment_RejectButton/@comment.PK_COMMENT_ID" class="btn btn-danger">Sil</a>
+                <a href="/AdminCommentPage/ComfirmComment_RejectButton/@comment.PK_COMMENT_ID" class="btn btn-danger">@Localizer["sil"]</a>
             </td>
 
 
