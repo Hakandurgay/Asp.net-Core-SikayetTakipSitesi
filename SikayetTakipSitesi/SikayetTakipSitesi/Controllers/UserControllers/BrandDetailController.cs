@@ -22,16 +22,6 @@ namespace SikayetTakipSitesi.Controllers
             this._context = context;
         }
 
-
-
-        //[HttpGet]
-        //public async Task<IActionResult> Index(int sayfa=1)
-        //{
-
-        //   var complaints = await _context.Complaints.Where(c => c.ComplaintStatus == true && c.ComplaintSwitchActive==true).ToPagedListAsync(sayfa,5);
-        //    return View(complaints);
-        //}
-
         [HttpGet]
         public async Task<IActionResult> Index(int id,int sayfa=1)
         {

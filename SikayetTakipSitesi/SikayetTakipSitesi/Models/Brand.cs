@@ -10,6 +10,7 @@ namespace SikayetTakipSitesi.Models
     {
         [Key]
         public int  PK_BRAND_ID { get; set; }
+
         public string BrandName { get; set; }
 
         public bool BrandStatus { get; set; }
@@ -17,9 +18,6 @@ namespace SikayetTakipSitesi.Models
         public string BrandPhoto { get; set; }
 
         public string BrandContent { get; set; }
-        // public ICollection<Complaint> Complaints { get; set; }
-
-        // public int MyProperty { get; set; }
 
     }
 }
