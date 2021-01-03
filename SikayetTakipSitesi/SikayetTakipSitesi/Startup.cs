@@ -110,7 +110,7 @@ namespace SikayetTakipSitesi
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=BrandDetail}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
         }

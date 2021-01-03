@@ -40,7 +40,7 @@
                             </div>
                             <div class="comment-body" style="background-color:#f2f2f2 ; border-style: ridge ; border-color: forestgreen ; border-width:3px">
                                 <div class="comment-body" style="background-color:#f2f2f2 ">
-                                    <form method="post" asp-action="Index" asp-controller="User" asp-route-id="@comment.MemberId">
+                                    <form method="get" asp-action="Index" asp-controller="User" asp-route-id="@comment.MemberId" asp-route-type="0" >
                                         <button type="submit" class="btn btn-primary2 font-weight-light"><h5>@comment.Member.MemberName @comment.Member.MemberLastName</h5> </button>
                                     </form>
                                     <p><b>@comment.CommentContent </b></p>

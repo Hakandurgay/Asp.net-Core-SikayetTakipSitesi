@@ -2,7 +2,7 @@
 <div class="sidebar-box ftco-animate">
     <div class="categories">
       @Localizer["marka"]
-        <form method="get" asp-action="Index" asp-controller="CategoryBrand">
+        <form method="get" asp-action="ComfirmCommet" asp-controller="AdminCommentPage">
             <li style="margin-bottom: 10px; border-bottom:solid; border-width:1px;"><button type="submit" class="btn btn-primary2 font-weight-light"> <span class="ion-ios-arrow-forward">@Localizer["tumu"]</span></button></li>
         </form>
         @foreach (var brand in Model)

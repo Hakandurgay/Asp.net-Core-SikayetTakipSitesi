@@ -1,38 +1,13 @@
-﻿using System;
+﻿using SikayetTakipSitesi.ViewModels;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SikayetTakipSitesi.Data;
-using SikayetTakipSitesi.Filters;
-using SikayetTakipSitesi.Models;
-using SikayetTakipSitesi.ViewModels;
-using X.PagedList;
+using System.Text;
 
-namespace SikayetTakipSitesi.Controllers.UserControllers
+namespace DataAccessLayer.Concrete.User
 {
-    [UserFilter]
-    public class UserController : Controller
+    class User_DAL
     {
-        private readonly SikayetDbContext _context;
 
-        public UserController(SikayetDbContext context)
-        {
-            this._context = context;
-        }
-
-        UserViewModel userModelView = new UserViewModel();
-
-
-        [HttpGet("{type}/{id}")]
-        public async Task<IActionResult> Index(string type, int id, int sayfa = 1)
-        {
-            if (type == "1" || type == "0") //type bir ise şikayet, iki ise yorum
-                return View(await ListComplaints(id, sayfa));
-
-            return View(await ListComments(id, sayfa));
-        }
 
         private async Task<UserViewModel> ListComplaints(int id, int sayfa)
         {
@@ -57,6 +32,7 @@ namespace SikayetTakipSitesi.Controllers.UserControllers
             userModelView.Comments = await _context.Comments.Include(x => x.Complaint).Where(x => x.Member.PK_MEMBER_ID == id && x.CommentStatus == true && x.CommentSwitchActive == true).Include(x => x.Complaint.FK_BRAND_ID).ToPagedListAsync(sayfa, 6);
             return userModelView;
         }
+
 
     }
 }

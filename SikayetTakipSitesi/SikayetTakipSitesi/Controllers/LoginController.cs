@@ -42,7 +42,7 @@ namespace SikayetTakipSitesi.Controllers
 
             if (HttpContext.Session.GetInt32("MEMBER_ID").HasValue)   //eğer login olunmuşsa tekrar login sayfasına gidilmesini engelliyor
             {
-                return Redirect("/CategoryBrand/Index");
+                return Redirect("/Home/Index");
             }
             return View();
         }
@@ -54,7 +54,7 @@ namespace SikayetTakipSitesi.Controllers
             if(member != null)
             {
                 SaveUserDataWithSession(member);
-                return Redirect("/CategoryBrand/Index");
+                return Redirect("/Home/Index");
 
             }
             return Redirect("LoginScreen");
